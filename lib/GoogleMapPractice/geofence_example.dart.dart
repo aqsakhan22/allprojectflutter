@@ -17,7 +17,7 @@ class _GeoFenceexampleState extends State<GeoFenceexample> {
   final String title="";
   TextEditingController latitudeController = new TextEditingController(text: "19.0759837");
   TextEditingController longitudeController = new TextEditingController(text: "72.8776559");
-  TextEditingController radiusController = new TextEditingController(text: "50");
+  TextEditingController radiusController = new TextEditingController(text: "80");
   double? lat;
   double? lng;
 
