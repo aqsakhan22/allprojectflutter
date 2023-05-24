@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutterdevelopment/background_service_learning.dart';
+import 'package:flutterdevelopment/backgroundService/back_service.dart';
+
+import 'package:flutterdevelopment/homeScreen.dart';
+
 
 import 'package:flutterdevelopment/service_example.dart';
+import 'package:permission_handler/permission_handler.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-   await initializeService();
+  await Permission.notification.isDenied.then((value) {
+    print("Notofication permission is ${value}");
+    if(value){
+      Permission.notification.request();
+
+    }
+  });
+  await initializeBackService();
   runApp(const MyApp());
 }
 
@@ -20,7 +31,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const BackgroundServiceExample(),
+      home: const HomeScreen(),
     );
   }
 }
