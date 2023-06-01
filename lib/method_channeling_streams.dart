@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:streams_channel2/streams_channel2.dart';
+
 class MethodShannelingStreatms extends StatefulWidget {
   const MethodShannelingStreatms({Key? key}) : super(key: key);
 

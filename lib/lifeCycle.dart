@@ -48,34 +48,26 @@ WidgetsBinding.instance.addObserver(this);
       case  AppLifecycleState.resumed:
         print("resumed"); // in foreground Responding to user
         //means App is in foreground
-       setState(() {
-         active=true;
-       });
+
         break;
-        case  AppLifecycleState.inactive:
+      case  AppLifecycleState.inactive:
         print("inactive");
         //app is partially visible not focused
         //App is inactive and user can't interact
-      setState(() {
-        active=false;
-      });
+
         break;
       case AppLifecycleState.paused:
-        //App is in background
-        //not visible , no response , background
+      //App is in background
+      //not visible , no response , background
         print('Paused');
-        setState(() {
-          active=false;
-        });
+
         break;
       case AppLifecycleState.detached:
         print('Detached');
         //vuew destroyed
         //App closed
-         //.destroyed
-        setState(() {
-          active=false;
-        });
+        //.destroyed
+
         break;
 
     }

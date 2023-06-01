@@ -29,6 +29,7 @@ class _MethodChannelingState extends State<MethodChanneling> {
      messageFromNativeCode=await channel.invokeMethod("showToast",{
         'message':"Subscribe my channel"
       });
+     print("shpw taos message ${messageFromNativeCode}");
     } on PlatformException catch(e){
 messageFromNativeCode="Failed to get meesage ${e.message}";
     }
@@ -40,10 +41,33 @@ messageFromNativeCode="Failed to get meesage ${e.message}";
 
   Future<void> showName() async{
    String messageFromNativeCode="";
-    print("press show toast");
+    print("press show name");
     //what method u want to invoke
     try{
-     messageFromNativeCode=await channel.invokeMethod("showName");
+      messageFromNativeCode=await channel.invokeMethod("showName1","askhjhgj");
+     // messageFromNativeCode=await channel.invokeMethod("showName1",{
+     //   "msg":"hello world"
+     // });
+     print("showName message ${messageFromNativeCode}");
+    } on PlatformException catch(e){
+messageFromNativeCode="Failed to get Name ${e.message}";
+    }
+
+    setState(() {
+      Name=messageFromNativeCode;
+    });
+  }
+
+  Future<void> sendingMap() async{
+   String messageFromNativeCode="";
+    print("press show name");
+    //what method u want to invoke
+    try{
+      messageFromNativeCode=await channel.invokeMethod("showName2",{"name":"aqsa khan"});
+     // messageFromNativeCode=await channel.invokeMethod("showName1",{
+     //   "msg":"hello world"
+     // });
+     print("showName message ${messageFromNativeCode}");
     } on PlatformException catch(e){
 messageFromNativeCode="Failed to get Name ${e.message}";
     }
@@ -125,6 +149,11 @@ messageFromNativeCode=0;
               showName();
 
             }, child: Text("show tName")),
+
+            ElevatedButton(onPressed: (){
+              sendingMap();
+
+            }, child: Text("sendingMap")),
 
             Text("${Name}"),
 

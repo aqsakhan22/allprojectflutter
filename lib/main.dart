@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterdevelopment/backgroundService/back_service.dart';
+import 'package:flutterdevelopment/backgroundService/example_back_service.dart';
 
 import 'package:flutterdevelopment/homeScreen.dart';
 
@@ -16,7 +17,8 @@ void main() async {
 
     }
   });
-  await initializeBackService();
+  // await initializeBackService();
+  // await initializeExampleService();
   runApp(const MyApp());
 }
 

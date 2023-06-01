@@ -38,7 +38,6 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_background_service: ^2.4.6
-  streams_channel2: ^1.0.0+1
   shared_preferences: ^2.0.15
   device_info_plus: ^3.2.3
   google_maps_flutter: ^2.2.6

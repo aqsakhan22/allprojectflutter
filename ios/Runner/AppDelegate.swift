@@ -7,17 +7,21 @@ enum ChannelName {
   static let charging = "samples.flutter.io/charging"
 }
 
+
+
+
 enum BatteryState {
   static let charging = "charging"
   static let discharging = "discharging"
 }
 
 enum MyFlutterErrorCode {
-  static let unavailable = "UNAVAILABLE"
+  static var unavailable = "UNAVAILABLE"
 }
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate,FlutterStreamHandler  {
     private var eventSink: FlutterEventSink?
+    var name="Aqsa"
   override func application(
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -27,6 +31,7 @@ enum MyFlutterErrorCode {
       let batteryChannel = FlutterMethodChannel(name: ChannelName.battery,binaryMessenger: controller.binaryMessenger)
       let chargingChannel = FlutterEventChannel(name: ChannelName.charging,binaryMessenger: controller.binaryMessenger)
       let cancelStream=FlutterMethodChannel(name:"cancelStream",binaryMessenger: controller.binaryMessenger);
+
 
 
        cancelStream.setMethodCallHandler({
@@ -65,15 +70,39 @@ enum MyFlutterErrorCode {
 
       channel.setMethodCallHandler(
         {
-         [weak self] (call: FlutterMethodCall,result: FlutterResult) -> Void in
+       (call: FlutterMethodCall,result: FlutterResult) -> Void in
           //This method is invoked in the UI thread
-          guard call.method == "showName" else{
+            guard let args = call.arguments as? [String : Any] else {return}
+            var startTracking = args["name"] as! String
+
+            print("start tracking is ",startTracking)
+            if(call.method == "showName1"){
+               // self?.getMessage1(result:result)
+                
+                print("call.arguments",call.arguments!)
+                self.name = call.arguments as! String
+//                print("self nam",self?.name)
+                result(call.arguments!)
+            }
+            if(call.method == "showName2"){
+             print("call.arguments showName2",call.arguments!)
+                print("call.arguments showName2",startTracking)
+                self.name=startTracking
+                print("showName2 name",self.name)
+                self.getMessage2()
+                 result(startTracking)
+            }
+         
+            
+            else{
               result(FlutterMethodNotImplemented)
               return
           }
-          self?.getMessage1(result:result)
+            
+           
 
       })
+  
 
 
       SwiftFlutterBackgroundServicePlugin.taskIdentifier = "dev.flutter.background.refresh"
@@ -151,7 +180,16 @@ enum MyFlutterErrorCode {
         }
     }
     private func getMessage1(result: FlutterResult){
-        let message = "My name is aqsa";
+
+//        guard let args = call.arguments as? [String : Any] else {return}
+       
+//        let message = args["msg"]  as! String
+        var message = "hello i am aqsa"
+        
+//        message.append( MyFlutterErrorCode.unavailable)
+//         print("self name ", MyFlutterErrorCode.unavailable)
+
+     
         if message.isEmpty{
             result(FlutterError(code:"UnAVAILABLE",
                                 message:"Message from swift is empty",
@@ -160,6 +198,11 @@ enum MyFlutterErrorCode {
         else{
             result(message)
         }
+    }
+
+     private func getMessage2(){
+   
+     print("getMessage2",self.name)
     }
 
 
