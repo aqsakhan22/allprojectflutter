@@ -25,7 +25,8 @@ class _ColrosImplementState extends State<ColrosImplement> {
               crossAxisSpacing: 20,
               mainAxisSpacing: 20),
           itemBuilder: (BuildContext context,int index){
-            return Container(
+            return
+              Container(
               decoration: BoxDecoration(
                 // color: Colors.primaries[_random.nextInt(Colors.primaries.length)]
                 // [_random.nextInt(9) * 100]
@@ -42,7 +43,8 @@ class _ColrosImplementState extends State<ColrosImplement> {
               ),
 
               child: Text("jghv"),
-            );
+            )
+            ;
           }
 
       ),
