@@ -1,3 +1,4 @@
+import 'package:firebaseflutterproject/user_intefaces/colors_implement.dart';
 import 'package:flutter/material.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -65,7 +66,16 @@ class _LoginScreenState extends State<LoginScreen> {
               onPressed: (){
             showCreateTicketBottomSheet();
 
-          }, child: Text("check bottom sheet"))
+          }, child: Text("check bottom sheet")),
+
+          ElevatedButton(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ColrosImplement() ));
+
+
+          }, child: Text("check gradient colors")),
+
+
         ],
       )
     );
