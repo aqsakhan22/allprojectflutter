@@ -1,17 +1,22 @@
+
 import 'package:firebaseflutterproject/firebase_options.dart';
+import 'package:firebaseflutterproject/firebase_services/fcm_controller.dart';
+import 'package:firebaseflutterproject/user_intefaces/notification_settings.dart';
 import 'package:firebaseflutterproject/user_intefaces/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-
-
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  NotificationService().initNotification();
   // await Firebase.initializeApp(name: 'abc');
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  await listenToFCM();
+
 
   runApp(const MyApp());
 }
