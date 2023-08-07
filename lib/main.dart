@@ -1,10 +1,13 @@
 
 import 'package:firebaseflutterproject/firebase_options.dart';
 import 'package:firebaseflutterproject/firebase_services/fcm_controller.dart';
+import 'package:firebaseflutterproject/stateManagement/provider/count_provider.dart';
+import 'package:firebaseflutterproject/stateManagement/provider/example_one.dart';
 import 'package:firebaseflutterproject/user_intefaces/notification_settings.dart';
 import 'package:firebaseflutterproject/user_intefaces/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +30,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+
+  return MultiProvider(
+ providers: [
+   ChangeNotifierProvider(create: (_) => CountProvider()),
+   ChangeNotifierProvider(create: (_) => colorchange()),
+
+ ],
+      child:      MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
 
@@ -43,8 +53,29 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.pink,
       ),
       home: SplashScreen()
-    );
+  ),
+  );
+
   }
 }
-
+// ChangeNotifierProvider(
+// create: (_) => CountProvider(), // thius is for single provider
+// child:      MaterialApp(
+// title: 'Flutter Demo',
+// theme: ThemeData(
+//
+// // This is the theme of your application.
+// //
+// // Try running your application with "flutter run". You'll see the
+// // application has a blue toolbar. Then, without quitting the app, try
+// // changing the primarySwatch below to Colors.green and then invoke
+// // "hot reload" (press "r" in the console where you ran "flutter run",
+// // or simply save your changes to "hot reload" in a Flutter IDE).
+// // Notice that the counter didn't reset back to zero; the application
+// // is not restarted.
+// primarySwatch: Colors.pink,
+// ),
+// home: SplashScreen()
+// ),
+// )
 

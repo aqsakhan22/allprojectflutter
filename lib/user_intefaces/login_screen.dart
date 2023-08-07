@@ -1,3 +1,4 @@
+import 'package:firebaseflutterproject/stateManagement/statemanagement.dart';
 import 'package:firebaseflutterproject/user_intefaces/colors_implement.dart';
 import 'package:firebaseflutterproject/user_intefaces/notification_settings.dart';
 import 'package:flutter/material.dart';
@@ -78,6 +79,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 NotificationService().showNotification(title: "sample title",body: "body");
 
           }, child: const Text("Notification check")),
+
+          ElevatedButton(
+              onPressed: (){
+
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Statemanagement()));
+              }, child: const Text("Statemanement Case Study")),
 
 
 
