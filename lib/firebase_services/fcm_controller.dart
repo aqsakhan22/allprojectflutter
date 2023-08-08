@@ -29,12 +29,12 @@ Future<void> listenToFCM() async {
 
   FirebaseMessaging.onMessage.listen((RemoteMessage message)
   {
-
+ print("handleMessage  ${message.data['body']}");
     //
     // Map<String,dynamic> data=jsonDecode(message.notification!.body.toString());
     // print("hello  ${data}");
     // print("_handleMessage  ${jsonDecode(message.notification!.body.toString())['name']}");
-    NotificationService().showNotification(title: "sample title",body: message.notification!.body);
+  NotificationService().showNotification(title: message.notification!.title,body: message.notification!.body);
   });
   FirebaseMessaging.onMessageOpenedApp.listen(_handleMessage);
   FirebaseMessaging.onBackgroundMessage(_handleMessage);
@@ -42,8 +42,8 @@ Future<void> listenToFCM() async {
 }
 
 Future<void> _handleMessage(RemoteMessage message) async {
-print("_handleMessage ${message.data} ${jsonDecode(message.data.toString())['name']}");
-NotificationService().showNotification(title: "sample title",body: message.data.toString());
+// print("_handleMessage ${message.data} ${message.notification!.title}");
+// NotificationService().showNotification(title: "sample title",body: message.data.toString());
   if (message.notification != null) {
     print('Message Also Contained A Notification: ${message.notification}');
   }
