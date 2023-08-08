@@ -14,17 +14,25 @@ class ProviderEx extends StatefulWidget {
 class _ProviderExState extends State<ProviderEx> {
   // late final countProvider;
   double value=1.0;
+  late Timer timer;
 @override
   void initState() {
     // TODO: implement initState
     super.initState();
     final countProvider=Provider.of<CountProvider>(context,listen: false);
-    // Timer.periodic(Duration(seconds: 1), (timer) {
-    //
-    //   countProvider.setCount();
-    // });
+    timer=Timer.periodic(Duration(seconds: 1), (timer) {
+
+      countProvider.setCount();
+    });
     // countProvider=Provider.of<CountProvider>(context);
 
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    timer.cancel();
   }
   @override
   Widget build(BuildContext context) {
@@ -39,47 +47,47 @@ class _ProviderExState extends State<ProviderEx> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-       // Consumer<CountProvider>(builder: (BuildContext context,details,child){
-       //
-       //   return  Center(
-       //     child:   Text("${details.counter}",style: TextStyle(fontSize: 48),),
-       //   );
-       // }),
-          //
-          Consumer<colorchange>(builder: (BuildContext context,details,child){
+       Consumer<CountProvider>(builder: (BuildContext context,details,child){
 
-         return     Column(
-           children: [
-
-             Slider(
-                 min: 0,
-                 max: 1,
-                 value: details.value, onChanged: (v){
-               details.setValue(v);
-
-             }),
-             Row(
-               children: [
-                 Expanded(child: Container(
-                   color: Colors.red.withOpacity(details.value),
-                   child: Text("container 1 ${ details.value}"),
-                 ),
-
-
-                 ),
-
-                 Expanded(child: Container(
-                   color: Colors.green.withOpacity(details.value),
-                   child: Text("container 3"),
-                 ),
-
-
-                 )
-               ],
-             ),
-           ],
+         return  Center(
+           child:   Text("${details.counter}",style: TextStyle(fontSize: 48),),
          );
        }),
+
+       //    Consumer<colorchange>(builder: (BuildContext context,details,child){
+       //
+       //   return     Column(
+       //     children: [
+       //
+       //       Slider(
+       //           min: 0,
+       //           max: 1,
+       //           value: details.value, onChanged: (v){
+       //         details.setValue(v);
+       //
+       //       }),
+       //       Row(
+       //         children: [
+       //           Expanded(child: Container(
+       //             color: Colors.red.withOpacity(details.value),
+       //             child: Text("container 1 ${ details.value}"),
+       //           ),
+       //
+       //
+       //           ),
+       //
+       //           Expanded(child: Container(
+       //             color: Colors.green.withOpacity(details.value),
+       //             child: Text("container 3"),
+       //           ),
+       //
+       //
+       //           )
+       //         ],
+       //       ),
+       //     ],
+       //   );
+       // }),
 
 
 
