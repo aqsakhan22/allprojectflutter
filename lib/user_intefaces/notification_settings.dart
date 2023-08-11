@@ -8,6 +8,8 @@ class NotificationService {
     var initializeSettingsIOS = DarwinInitializationSettings(requestAlertPermission: true, requestBadgePermission: true, requestSoundPermission: true, onDidReceiveLocalNotification: (int id, String? title, String? body, String? payload) async {});
     var initializeSettings = InitializationSettings(android: initializationSettingsAndroid, iOS: initializeSettingsIOS);
     await notificationsPlugin.initialize(initializeSettings, onDidReceiveNotificationResponse: (NotificationResponse notificationResponse) async {});
+
+
   }
 
   Future showNotification({int id = 0, String? title, String? body, String? payload}) async {
