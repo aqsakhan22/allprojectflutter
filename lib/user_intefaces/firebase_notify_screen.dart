@@ -14,9 +14,12 @@ class _Firebase_notify_screenState extends State<Firebase_notify_screen> {
     // TODO: implement initState
     super.initState();
     notificationServices.requestNotificationPermission();
+    notificationServices.firebaseInit();
+    notificationServices.initLocalNotifications();
     notificationServices.getDeviceToken().then((value) {
       print("FCM TOKEN IS ${value}");
     });
+  //  notificationServices.isTokenRefresh();
   }
   @override
   Widget build(BuildContext context) {

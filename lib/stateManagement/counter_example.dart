@@ -95,7 +95,7 @@ class _ProviderExState extends State<ProviderEx> {
       ),
 
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: (){
           countProvider.setCount();
         },
