@@ -1,27 +1,27 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebaseflutterproject/examples/AutoCompleteEx.dart';
 import 'package:firebaseflutterproject/firebase_options.dart';
-import 'package:firebaseflutterproject/firebase_services/fcm_controller.dart';
+import 'package:firebaseflutterproject/socketLearning/socket_initialization.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/count_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/example_one.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/favourite_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/theme_provider.dart';
-import 'package:firebaseflutterproject/user_intefaces/FavouriteScreen.dart';
-import 'package:firebaseflutterproject/user_intefaces/dart_theme.dart';
-import 'package:firebaseflutterproject/user_intefaces/firebase_notify_screen.dart';
-import 'package:firebaseflutterproject/user_intefaces/notification_settings.dart';
-import 'package:firebaseflutterproject/user_intefaces/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // NotificationService().initNotification();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
   // await listenToFCM();
-
+  WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    //initialize socket
+    SoccketIntegration().initSocket();
+  });
   runApp(const MyApp());
 }
 
@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
                   backgroundColor: Colors.blue
                 )
               ),
-              home: Firebase_notify_screen());
+              home: AutoCompleteEx());
         },
       ),
     );

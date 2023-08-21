@@ -4,6 +4,7 @@ import 'package:firebaseflutterproject/stateManagement/provider/count_provider.d
 import 'package:firebaseflutterproject/stateManagement/provider/example_one.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 class ProviderEx extends StatefulWidget {
   const ProviderEx({Key? key}) : super(key: key);
 
