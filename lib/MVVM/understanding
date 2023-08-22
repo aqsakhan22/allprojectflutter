@@ -1,0 +1,8 @@
+data ->
+repository -> backend logic and network connection
+view -> UI screen
+viewModel ->
+res -> constant values component URL usiong
+data -> Network related task like api sy koi response aye get and set all type of request
+
+
