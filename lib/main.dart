@@ -1,4 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebaseflutterproject/MVVM/utils/routes/routes.dart';
+import 'package:firebaseflutterproject/MVVM/utils/routes/routes_name.dart';
+import 'package:firebaseflutterproject/MVVM/view/login_screen.dart';
+import 'package:firebaseflutterproject/voice_recognition/alan_sample.dart';
+import 'package:firebaseflutterproject/voice_recognition/speech_to_text.dart';
+import 'package:firebaseflutterproject/voice_recognition/voice_recongition.dart';
 import 'package:firebaseflutterproject/examples/AutoCompleteEx.dart';
 import 'package:firebaseflutterproject/firebase_options.dart';
 import 'package:firebaseflutterproject/socketLearning/socket_initialization.dart';
@@ -63,7 +69,10 @@ class MyApp extends StatelessWidget {
                   backgroundColor: Colors.blue
                 )
               ),
-              home: AutoCompleteEx());
+             home: SpeechToText(),
+             // initialRoute: RoutesName.login,
+             // onGenerateRoute: Routes.generateRoute,
+          );
         },
       ),
     );
