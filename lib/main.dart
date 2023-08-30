@@ -12,6 +12,7 @@ import 'package:firebaseflutterproject/stateManagement/provider/count_provider.d
 import 'package:firebaseflutterproject/stateManagement/provider/example_one.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/favourite_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/theme_provider.dart';
+import 'package:firebaseflutterproject/voice_recognition/voice_samle.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -69,7 +70,7 @@ class MyApp extends StatelessWidget {
                   backgroundColor: Colors.blue
                 )
               ),
-             home: SpeechToText(),
+             home: VoiceSample(),
              // initialRoute: RoutesName.login,
              // onGenerateRoute: Routes.generateRoute,
           );

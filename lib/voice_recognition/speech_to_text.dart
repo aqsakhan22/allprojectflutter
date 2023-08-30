@@ -13,7 +13,7 @@ class _SpeechToTextState extends State<SpeechToText> {
  late sst.SpeechToText _speech;
  bool _isListening = false;
  String _text ='Press the button and start speaking'  ;
- double _confidence=1.0;
+ double confidence=1.0;
 final Map<String,HighlightedWord>  _highlights={
   'flutter':HighlightedWord(
     onTap: (){
@@ -30,6 +30,7 @@ final Map<String,HighlightedWord>  _highlights={
 };
 
 void _listen() async{
+
   print("");
   //false
   if(!_isListening) {
@@ -42,6 +43,7 @@ void _listen() async{
             _isListening=false;
           });
           _speech.stop();
+
          
 
 
@@ -49,6 +51,10 @@ void _listen() async{
       },
         onError: (val) => print("onError: $val")
     );
+    if(_speech.isListening){
+      print("speech is listening");
+
+    }
 
     if(available){
       setState(() {
@@ -72,7 +78,7 @@ void _listen() async{
             }
           });
           if(val.hasConfidenceRating && val.confidence > 0){
-             _confidence=val.confidence;
+             confidence=val.confidence;
           }
         })
       );
