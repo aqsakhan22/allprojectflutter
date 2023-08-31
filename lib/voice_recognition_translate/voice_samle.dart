@@ -1,7 +1,8 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:clipboard/clipboard.dart';
-import 'package:firebaseflutterproject/voice_recognition/commands.dart';
-import 'package:firebaseflutterproject/voice_recognition/speechclass.dart';
+import 'package:firebaseflutterproject/voice_recognition_translate/commands.dart';
+import 'package:firebaseflutterproject/voice_recognition_translate/speechclass.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:substring_highlight/substring_highlight.dart';

@@ -1,0 +1,109 @@
+import 'package:flutter/material.dart';
+import 'package:translator/translator.dart';
+class Translatlang extends StatefulWidget {
+  const Translatlang({Key? key}) : super(key: key);
+
+  @override
+  State<Translatlang> createState() => _TranslatlangState();
+}
+
+class _TranslatlangState extends State<Translatlang> {
+  TextEditingController textEditingController = TextEditingController();
+  GoogleTranslator translator = GoogleTranslator();
+  var output;
+  late String dropdownValue="hi";
+
+  static const Map<String, String> lang = {
+    "Hindi": "hi",
+    "English": "en",
+    "Urdu": "ur",
+  };
+  void trans() {
+    translator
+        .translate(textEditingController.text, to: "$dropdownValue")
+        .then((value) {
+      setState(() {
+        output = value;
+      });
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title:const Text("Translate"),),
+      body: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(left: 20, right: 20),
+            child: TextFormField(
+              style: TextStyle(fontSize: 24),
+              controller: textEditingController,
+              onTap: () {
+                trans();
+              },
+              decoration: InputDecoration(
+                  labelText: 'Type Here',
+                  labelStyle: TextStyle(fontSize: 15)),
+            ),
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text("Select Language here =>"),
+              DropdownButton<String>(
+                value: dropdownValue,
+                icon: Icon(Icons.arrow_downward),
+                iconSize: 24,
+                elevation: 16,
+                style: TextStyle(color: Colors.deepPurple),
+                underline: Container(
+                  height: 2,
+                  color: Colors.deepPurpleAccent,
+                ),
+                onChanged: (newValue) {
+                  setState(() {
+                    dropdownValue = newValue!;
+                    trans();
+                  });
+                },
+                items: lang
+                    .map((string, value) {
+                  return MapEntry(
+                    string,
+                    DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(string),
+                    ),
+                  );
+                })
+                    .values
+                    .toList(),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          Text('Translated Text'),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            output == null ? "Please Select Language" : output.toString(),
+            style: TextStyle(
+                fontSize: 17,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.w500),
+          ),
+
+        ],
+      ),
+    );
+  }
+}

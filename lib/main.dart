@@ -1,23 +1,20 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebaseflutterproject/MVVM/utils/routes/routes.dart';
-import 'package:firebaseflutterproject/MVVM/utils/routes/routes_name.dart';
-import 'package:firebaseflutterproject/MVVM/view/login_screen.dart';
-import 'package:firebaseflutterproject/voice_recognition/alan_sample.dart';
-import 'package:firebaseflutterproject/voice_recognition/speech_to_text.dart';
-import 'package:firebaseflutterproject/voice_recognition/voice_recongition.dart';
-import 'package:firebaseflutterproject/examples/AutoCompleteEx.dart';
 import 'package:firebaseflutterproject/firebase_options.dart';
 import 'package:firebaseflutterproject/socketLearning/socket_initialization.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/count_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/example_one.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/favourite_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/theme_provider.dart';
-import 'package:firebaseflutterproject/voice_recognition/voice_samle.dart';
+import 'package:firebaseflutterproject/voice_recognition_translate/Language.dart';
+import 'package:firebaseflutterproject/voice_recognition_translate/transaltor_lang.dart';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  debugDefaultTargetPlatformOverride = TargetPlatform.android;
   // NotificationService().initNotification();
 
   await Firebase.initializeApp(
@@ -70,7 +67,7 @@ class MyApp extends StatelessWidget {
                   backgroundColor: Colors.blue
                 )
               ),
-             home: VoiceSample(),
+             home: Translatlang(),
              // initialRoute: RoutesName.login,
              // onGenerateRoute: Routes.generateRoute,
           );
