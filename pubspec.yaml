@@ -71,6 +71,7 @@ dev_dependencies:
   flutter_speech: ^2.0.0
   translator: ^0.1.7
   flutter_speed_dial: ^7.0.0
+  google_maps_flutter: ^2.2.3
 
 
 
