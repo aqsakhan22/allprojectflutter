@@ -70,6 +70,7 @@ dev_dependencies:
   substring_highlight: ^1.0.33
   flutter_speech: ^2.0.0
   translator: ^0.1.7
+  flutter_speed_dial: ^7.0.0
 
 
 

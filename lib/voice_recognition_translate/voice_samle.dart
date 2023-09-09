@@ -72,6 +72,8 @@ class _VoiceSampleState extends State<VoiceSample> {
           )),
     );
   }
+
+
   Future toggleRecording() => Speech.toggleRecording(
       onResult: (String text) => setState(() {
         textSample = text;

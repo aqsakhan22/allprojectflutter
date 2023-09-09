@@ -17,8 +17,8 @@ class SpeechRecognitionEx extends StatefulWidget {
 class _SpeechRecognitionExState extends State<SpeechRecognitionEx> {
 
   List<Language> languages = [
-    Language('English', 'en_US'),
     Language('Hindi', 'hi'),
+    Language('English', 'en_US'),
     Language('Francais', 'fr_FR'),
     Language('Pусский', 'ru_RU'),
     Language('Italiano', 'it_IT'),

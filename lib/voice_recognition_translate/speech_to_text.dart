@@ -62,7 +62,7 @@ void _listen() async{
       });
       _speech.listen(
         onResult: (val) => setState(() {
-          print("speech ois ${val.recognizedWords} ${val.alternates}");
+          print("speech ois ${val.recognizedWords} ${val.alternates} ${val}");
           _text=val.recognizedWords;
 
           WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
@@ -101,6 +101,7 @@ void _listen() async{
     super.initState();
     _speech=sst.SpeechToText();
   }
+
  @override
   Widget build(BuildContext context) {
 
