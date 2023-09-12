@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:cast/cast.dart';
-
+import 'package:flutter/material.dart';
 
 class ChromeCastExample extends StatelessWidget {
   @override
@@ -37,52 +36,48 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: (){
+    return ElevatedButton(
+        onPressed: () {
+          showDialog(
+              // useSafeArea:false,
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  contentPadding: EdgeInsets.zero,
+                  content: CastDevices(),
+                );
+              });
 
-         showDialog(
-             // useSafeArea:false,
-             context: context,
-             builder: (BuildContext context){
-               return AlertDialog(
-                 contentPadding: EdgeInsets.zero,
-                 content: CastDevices(),
-               );
-             }
-
-         );
-
-      // showModalBottomSheet(
-      //     context: context,
-      //     builder: (BuildContext context) {
-      //
-      //      return
-      //
-      //        CastDevices();
-      //       //  Wrap(
-      //       //   children: [
-      //       //     ListTile(
-      //       //       leading: Icon(Icons.share),
-      //       //       title: Text('Share'),
-      //       //     ),
-      //       //     ListTile(
-      //       //       leading: Icon(Icons.copy),
-      //       //       title: Text('Copy Link'),
-      //       //     ),
-      //       //   ],
-      //       // );
-      //     }
-      //
-      // );
-
-    }, child: Text("check cast devices"));
-
-
+          // showModalBottomSheet(
+          //     context: context,
+          //     builder: (BuildContext context) {
+          //
+          //      return
+          //
+          //        CastDevices();
+          //       //  Wrap(
+          //       //   children: [
+          //       //     ListTile(
+          //       //       leading: Icon(Icons.share),
+          //       //       title: Text('Share'),
+          //       //     ),
+          //       //     ListTile(
+          //       //       leading: Icon(Icons.copy),
+          //       //       title: Text('Copy Link'),
+          //       //     ),
+          //       //   ],
+          //       // );
+          //     }
+          //
+          // );
+        },
+        child: Text("check cast devices"));
   }
 
-  Widget CastDevices(){
-   return Padding(
-     padding: const EdgeInsets.symmetric(vertical: 10.0),
-     child: FutureBuilder<List<CastDevice>>(
+  Widget CastDevices() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      child: FutureBuilder<List<CastDevice>>(
         future: _future,
         builder: (context, snapshot) {
           if (snapshot.hasError) {
@@ -91,9 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 'Error: ${snapshot.error.toString()}',
               ),
             );
-          }
-
-          else if (!snapshot.hasData) {
+          } else if (!snapshot.hasData) {
             return Center(
               child: CircularProgressIndicator(),
             );
@@ -102,7 +95,6 @@ class _MyHomePageState extends State<MyHomePage> {
           if (snapshot.data!.isEmpty) {
             return Column(
               mainAxisSize: MainAxisSize.min,
-
               children: [
                 Center(
                   child: Text(
@@ -128,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
           );
         },
       ),
-   );
+    );
   }
 
   void _startSearch() {
@@ -141,7 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
     session.stateStream.listen((state) {
       if (state == CastSessionState.connected) {
         final snackBar = SnackBar(content: Text('Connected'));
-       // Scaffold.of(context).showSnackBar(snackBar);
+        // Scaffold.of(context).showSnackBar(snackBar);
 
         _sendMessageToYourApp(session);
       }
@@ -171,7 +163,7 @@ class _MyHomePageState extends State<MyHomePage> {
     session.stateStream.listen((state) {
       if (state == CastSessionState.connected) {
         final snackBar = SnackBar(content: Text('Connected'));
-       // Scaffold.of(context).showSnackBar(snackBar);
+        // Scaffold.of(context).showSnackBar(snackBar);
       }
     });
 

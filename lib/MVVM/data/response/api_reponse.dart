@@ -1,17 +1,20 @@
 import 'package:firebaseflutterproject/MVVM/data/response/status.dart';
 
-class ApiResponse<T>{
+class ApiResponse<T> {
   Status? status;
   T? data;
-  String?  message;
+  String? message;
 
+  ApiResponse(this.status, this.data, this.message);
 
-  ApiResponse(this.status,this.data,this.message);
   ApiResponse.loading() : status = Status.LOADING;
+
   ApiResponse.completed() : status = Status.COMPLETED;
+
   ApiResponse.error() : status = Status.ERROR;
+
   @override
-  String toString(){
+  String toString() {
     return "Status :${status} \n Message : $message \n Dara: ${data}";
   }
 }

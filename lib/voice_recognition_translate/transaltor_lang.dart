@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:translator/translator.dart';
+
 class Translatlang extends StatefulWidget {
   const Translatlang({Key? key}) : super(key: key);
 
@@ -11,26 +12,28 @@ class _TranslatlangState extends State<Translatlang> {
   TextEditingController textEditingController = TextEditingController();
   GoogleTranslator translator = GoogleTranslator();
   var output;
-  late String dropdownValue="hi";
+  late String dropdownValue = "hi";
 
   static const Map<String, String> lang = {
     "Hindi": "hi",
     "English": "en",
     "Urdu": "ur",
   };
+
   void trans() {
-    translator
-        .translate(textEditingController.text, to: "$dropdownValue")
-        .then((value) {
+    translator.translate(textEditingController.text, to: "$dropdownValue").then((value) {
       setState(() {
         output = value;
       });
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title:const Text("Translate"),),
+      appBar: AppBar(
+        title: const Text("Translate"),
+      ),
       body: Column(
         children: [
           Container(
@@ -41,9 +44,7 @@ class _TranslatlangState extends State<Translatlang> {
               onTap: () {
                 trans();
               },
-              decoration: InputDecoration(
-                  labelText: 'Type Here',
-                  labelStyle: TextStyle(fontSize: 15)),
+              decoration: InputDecoration(labelText: 'Type Here', labelStyle: TextStyle(fontSize: 15)),
             ),
           ),
           SizedBox(
@@ -74,14 +75,14 @@ class _TranslatlangState extends State<Translatlang> {
                 },
                 items: lang
                     .map((string, value) {
-                  return MapEntry(
-                    string,
-                    DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(string),
-                    ),
-                  );
-                })
+                      return MapEntry(
+                        string,
+                        DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(string),
+                        ),
+                      );
+                    })
                     .values
                     .toList(),
               ),
@@ -96,12 +97,8 @@ class _TranslatlangState extends State<Translatlang> {
           ),
           Text(
             output == null ? "Please Select Language" : output.toString(),
-            style: TextStyle(
-                fontSize: 17,
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w500),
+            style: TextStyle(fontSize: 17, fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
           ),
-
         ],
       ),
     );

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'multiple_tab.dart';
 import 'single_tab.dart';
-
-
 
 class Videoplayer_Ex extends StatefulWidget {
   @override

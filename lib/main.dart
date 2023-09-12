@@ -1,6 +1,4 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebaseflutterproject/MVVM/view/login_screen.dart';
-import 'package:firebaseflutterproject/examples/app_life_cycle.dart';
 import 'package:firebaseflutterproject/examples/multiple_floating_buttons.dart';
 import 'package:firebaseflutterproject/firebase_options.dart';
 import 'package:firebaseflutterproject/socketLearning/socket_initialization.dart';
@@ -8,11 +6,6 @@ import 'package:firebaseflutterproject/stateManagement/provider/count_provider.d
 import 'package:firebaseflutterproject/stateManagement/provider/example_one.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/favourite_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/theme_provider.dart';
-import 'package:firebaseflutterproject/voice_recognition_translate/Language.dart';
-import 'package:firebaseflutterproject/voice_recognition_translate/speech_to_text.dart';
-import 'package:firebaseflutterproject/voice_recognition_translate/transaltor_lang.dart';
-import 'package:firebaseflutterproject/voice_recognition_translate/voice_samle.dart';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -35,13 +28,12 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-  //  final themeChanger=Provider.of<ThemeProvider>(context);
+    //  final themeChanger=Provider.of<ThemeProvider>(context);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => CountProvider()),
@@ -50,33 +42,25 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
       ],
       child: Builder(
-        builder: (BuildContext context){
-          final themeChanger=Provider.of<ThemeProvider>(context);
+        builder: (BuildContext context) {
+          final themeChanger = Provider.of<ThemeProvider>(context);
 
           return MaterialApp(
-              title: 'Flutter Demo',
-              themeMode: themeChanger.themeMode,
-              theme: ThemeData(
-                brightness: Brightness.light,
-                primarySwatch: Colors.red,
-                  primaryColor: Colors.purple
-              ),
-              darkTheme: ThemeData(
+            title: 'Flutter Demo',
+            themeMode: themeChanger.themeMode,
+            theme: ThemeData(brightness: Brightness.light, primarySwatch: Colors.red, primaryColor: Colors.purple),
+            darkTheme: ThemeData(
                 primarySwatch: Colors.blue,
                 brightness: Brightness.dark,
                 primaryColor: Colors.red,
-                iconTheme: IconThemeData(
-                  color: Colors.red
-                ),
+                iconTheme: IconThemeData(color: Colors.red),
                 appBarTheme: AppBarTheme(
-                  // color: Colors.blue,
-                  backgroundColor: Colors.blue
-                )
-              ),
-             // home: LoginScreen(),
-             home: MultipleFloatingBtns(),
-             // initialRoute: RoutesName.login,
-             // onGenerateRoute: Routes.generateRoute,
+                    // color: Colors.blue,
+                    backgroundColor: Colors.blue)),
+            // home: LoginScreen(),
+            home: MultipleFloatingBtns(),
+            // initialRoute: RoutesName.login,
+            // onGenerateRoute: Routes.generateRoute,
           );
         },
       ),

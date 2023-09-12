@@ -6,7 +6,6 @@ import 'package:path_provider/path_provider.dart';
 
 import 'controls_overlay.dart';
 
-
 typedef onStopRecordingCallback = void Function(String);
 
 class VlcPlayerWithControls extends StatefulWidget {
@@ -14,7 +13,10 @@ class VlcPlayerWithControls extends StatefulWidget {
   final bool? showControls;
   final onStopRecordingCallback? onStopRecording;
 
-  VlcPlayerWithControls({required Key key, @required this.controller, this.showControls = true,
+  VlcPlayerWithControls({
+    required Key key,
+    @required this.controller,
+    this.showControls = true,
     this.onStopRecording,
   })  : assert(controller != null, 'You must provide a vlc controller'),
         super(key: key);
@@ -23,8 +25,7 @@ class VlcPlayerWithControls extends StatefulWidget {
   VlcPlayerWithControlsState createState() => VlcPlayerWithControlsState();
 }
 
-class VlcPlayerWithControlsState extends State<VlcPlayerWithControls>
-    with AutomaticKeepAliveClientMixin {
+class VlcPlayerWithControlsState extends State<VlcPlayerWithControls> with AutomaticKeepAliveClientMixin {
   static const _playerControlsBgColor = Colors.black87;
 
   late VlcPlayerController _controller;
@@ -77,10 +78,8 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls>
         if (oDuration.inHours == 0) {
           var strPosition = oPosition.toString().split('.')[0];
           var strDuration = oDuration.toString().split('.')[0];
-          position =
-          "${strPosition.split(':')[1]}:${strPosition.split(':')[2]}";
-          duration =
-          "${strDuration.split(':')[1]}:${strDuration.split(':')[2]}";
+          position = "${strPosition.split(':')[1]}:${strPosition.split(':')[2]}";
+          duration = "${strDuration.split(':')[1]}:${strDuration.split(':')[2]}";
         } else {
           position = oPosition.toString().split('.')[0];
           duration = oDuration.toString().split('.')[0];
@@ -237,9 +236,7 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls>
                     ),
                     IconButton(
                       color: Colors.white,
-                      icon: _controller.value.isRecording
-                          ? Icon(Icons.videocam_off_outlined)
-                          : Icon(Icons.videocam_outlined),
+                      icon: _controller.value.isRecording ? Icon(Icons.videocam_off_outlined) : Icon(Icons.videocam_outlined),
                       onPressed: _toggleRecording,
                     ),
                     IconButton(
@@ -255,22 +252,14 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Size: ' +
-                            (_controller.value.size?.width?.toInt() ?? 0)
-                                .toString() +
-                            'x' +
-                            (_controller.value.size?.height?.toInt() ?? 0)
-                                .toString(),
+                        'Size: ' + (_controller.value.size?.width?.toInt() ?? 0).toString() + 'x' + (_controller.value.size?.height?.toInt() ?? 0).toString(),
                         textAlign: TextAlign.center,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(color: Colors.white, fontSize: 10),
                       ),
                       SizedBox(height: 5),
                       Text(
-                        'Status: ' +
-                            _controller.value.playingState
-                                .toString()
-                                .split('.')[1],
+                        'Status: ' + _controller.value.playingState.toString().split('.')[1],
                         textAlign: TextAlign.center,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(color: Colors.white, fontSize: 10),
@@ -318,7 +307,10 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls>
                     ),
                   ),
                 ),
-                ControlsOverlay(controller: _controller, key: Key("kekj"),),
+                ControlsOverlay(
+                  controller: _controller,
+                  key: Key("kekj"),
+                ),
               ],
             ),
           ),
@@ -333,9 +325,7 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls>
               children: [
                 IconButton(
                   color: Colors.white,
-                  icon: _controller.value.isPlaying
-                      ? Icon(Icons.pause_circle_outline)
-                      : Icon(Icons.play_circle_outline),
+                  icon: _controller.value.isPlaying ? Icon(Icons.pause_circle_outline) : Icon(Icons.play_circle_outline),
                   onPressed: _togglePlaying,
                 ),
                 Expanded(
@@ -353,12 +343,8 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls>
                           inactiveColor: Colors.white70,
                           value: sliderValue,
                           min: 0.0,
-                          max: (!validPosition &&
-                              _controller.value.duration == null)
-                              ? 1.0
-                              : _controller.value.duration.inSeconds.toDouble(),
-                          onChanged:
-                          validPosition ? _onSliderPositionChanged : null,
+                          max: (!validPosition && _controller.value.duration == null) ? 1.0 : _controller.value.duration.inSeconds.toDouble(),
+                          onChanged: validPosition ? _onSliderPositionChanged : null,
                         ),
                       ),
                       Text(
@@ -415,8 +401,7 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls>
     if (playbackSpeedIndex >= playbackSpeeds.length) {
       playbackSpeedIndex = 0;
     }
-    return await _controller
-        .setPlaybackSpeed(playbackSpeeds.elementAt(playbackSpeedIndex));
+    return await _controller.setPlaybackSpeed(playbackSpeeds.elementAt(playbackSpeedIndex));
   }
 
   void _setSoundVolume(value) {
@@ -427,9 +412,7 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls>
   }
 
   void _togglePlaying() async {
-    _controller.value.isPlaying
-        ? await _controller.pause()
-        : await _controller.play();
+    _controller.value.isPlaying ? await _controller.pause() : await _controller.play();
   }
 
   void _toggleRecording() async {
@@ -468,16 +451,12 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls>
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Text(
-                      index < subtitleTracks.keys.length
-                          ? subtitleTracks.values.elementAt(index).toString()
-                          : 'Disable',
+                      index < subtitleTracks.keys.length ? subtitleTracks.values.elementAt(index).toString() : 'Disable',
                     ),
                     onTap: () {
                       Navigator.pop(
                         context,
-                        index < subtitleTracks.keys.length
-                            ? subtitleTracks.keys.elementAt(index)
-                            : -1,
+                        index < subtitleTracks.keys.length ? subtitleTracks.keys.elementAt(index) : -1,
                       );
                     },
                   );
@@ -510,16 +489,12 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls>
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Text(
-                      index < audioTracks.keys.length
-                          ? audioTracks.values.elementAt(index).toString()
-                          : 'Disable',
+                      index < audioTracks.keys.length ? audioTracks.values.elementAt(index).toString() : 'Disable',
                     ),
                     onTap: () {
                       Navigator.pop(
                         context,
-                        index < audioTracks.keys.length
-                            ? audioTracks.keys.elementAt(index)
-                            : -1,
+                        index < audioTracks.keys.length ? audioTracks.keys.elementAt(index) : -1,
                       );
                     },
                   );
@@ -552,16 +527,12 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls>
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Text(
-                      index < castDevices.keys.length
-                          ? castDevices.values.elementAt(index).toString()
-                          : 'Disconnect',
+                      index < castDevices.keys.length ? castDevices.values.elementAt(index).toString() : 'Disconnect',
                     ),
                     onTap: () {
                       Navigator.pop(
                         context,
-                        index < castDevices.keys.length
-                            ? castDevices.keys.elementAt(index)
-                            : null,
+                        index < castDevices.keys.length ? castDevices.keys.elementAt(index) : null,
                       );
                     },
                   );
@@ -573,8 +544,7 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls>
       );
       await _controller.castToRenderer(selectedCastDeviceName);
     } else {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('No Display Device Found!')));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('No Display Device Found!')));
     }
   }
 

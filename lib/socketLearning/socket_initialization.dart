@@ -1,10 +1,9 @@
-
-
 import 'package:firebaseflutterproject/TopVariables.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
+
 //learn from
 //https://medium.com/flutter-community/flutter-integrating-socket-io-client-2a8f6e208810
-class SoccketIntegration{
+class SoccketIntegration {
   IO.Socket socket = IO.io(TopVaraible.socketServerURL, <String, dynamic>{
     'autoConnect': false,
     'reconnection': true,
@@ -21,8 +20,7 @@ class SoccketIntegration{
   //
   // socket.emit('send-message',{"roomID": "123"});
 
-
-  initSocket(){
+  initSocket() {
     print('initSocket');
 
     socket.connect();
@@ -33,7 +31,8 @@ class SoccketIntegration{
     socket.onConnectError((err) => print(err));
     socket.onError((err) => print(err));
   }
-  socketDisconnect(){
+
+  socketDisconnect() {
     socket.disconnect();
   }
 

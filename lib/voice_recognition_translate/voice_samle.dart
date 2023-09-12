@@ -2,19 +2,20 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:clipboard/clipboard.dart';
 import 'package:firebaseflutterproject/voice_recognition_translate/commands.dart';
 import 'package:firebaseflutterproject/voice_recognition_translate/speechclass.dart';
-
 import 'package:flutter/material.dart';
-
 import 'package:substring_highlight/substring_highlight.dart';
 
 class VoiceSample extends StatefulWidget {
   const VoiceSample({Key? key}) : super(key: key);
+
   @override
   State<VoiceSample> createState() => _VoiceSampleState();
 }
+
 class _VoiceSampleState extends State<VoiceSample> {
   String textSample = 'Click button to start recording';
   bool isListening = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,20 +65,16 @@ class _VoiceSampleState extends State<VoiceSample> {
                 color: Colors.teal,
                 fontSize: 30,
               ),
-              textStyleHighlight: const TextStyle(
-                  color: Colors.blue,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold),
+              textStyleHighlight: const TextStyle(color: Colors.blue, fontSize: 30, fontWeight: FontWeight.bold),
             ),
           )),
     );
   }
 
-
   Future toggleRecording() => Speech.toggleRecording(
       onResult: (String text) => setState(() {
-        textSample = text;
-      }),
+            textSample = text;
+          }),
       onListening: (bool isListening) {
         setState(() {
           this.isListening = isListening;

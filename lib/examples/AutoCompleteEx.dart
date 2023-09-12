@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 //https://www.fluttercampus.com/guide/189/how-to-add-autocomplete-suggestions-on-textfield-in-flutter/
@@ -17,72 +16,58 @@ class _AutoCompleteExState extends State<AutoCompleteEx> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("äuto complete"),),
+      appBar: AppBar(
+        title: Text("äuto complete"),
+      ),
       body: Column(
         children: [
           RawAutocomplete(
             optionsBuilder: (TextEditingValue textEditingValue) {
               if (textEditingValue.text == '') {
                 return const Iterable<String>.empty();
-              }else{
+              } else {
                 List<String> matches = <String>[];
                 matches.addAll(suggestons);
 
-                matches.retainWhere((s){
+                matches.retainWhere((s) {
                   print("matches value is ${s}");
                   return s.toLowerCase().contains(textEditingValue.text.toLowerCase());
                 });
                 return matches;
               }
             },
-
             onSelected: (String selection) {
               print('You just selected $selection');
             },
-
-            fieldViewBuilder: (BuildContext context, TextEditingController textEditingController,
-                FocusNode focusNode,
-                VoidCallback onFieldSubmitted) {
+            fieldViewBuilder: (BuildContext context, TextEditingController textEditingController, FocusNode focusNode, VoidCallback onFieldSubmitted) {
               return TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder()
-                ),
+                decoration: InputDecoration(border: OutlineInputBorder()),
                 controller: textEditingController,
                 focusNode: focusNode,
-                onSubmitted: (String value) {
-
-                },
+                onSubmitted: (String value) {},
               );
             },
-
-            optionsViewBuilder: (BuildContext context, void Function(String) onSelected,
-                Iterable<String> options) {
+            optionsViewBuilder: (BuildContext context, void Function(String) onSelected, Iterable<String> options) {
               return Material(
-                  child:SizedBox(
+                  child: SizedBox(
                       height: 200,
-                      child:SingleChildScrollView(
+                      child: SingleChildScrollView(
                           child: Column(
-                            children: options.map((opt){
-                              return InkWell(
-                                  onTap: (){
-                                    onSelected(opt);
-                                  },
-                                  child:Container(
-                                      padding: EdgeInsets.only(right:60),
-                                      child:Card(
-                                          child: Container(
-                                            width: double.infinity,
-                                            padding: EdgeInsets.all(10),
-                                            child:Text(opt),
-                                          )
-                                      )
-                                  )
-                              );
-                            }).toList(),
-                          )
-                      )
-                  )
-              );
+                        children: options.map((opt) {
+                          return InkWell(
+                              onTap: () {
+                                onSelected(opt);
+                              },
+                              child: Container(
+                                  padding: EdgeInsets.only(right: 60),
+                                  child: Card(
+                                      child: Container(
+                                    width: double.infinity,
+                                    padding: EdgeInsets.all(10),
+                                    child: Text(opt),
+                                  ))));
+                        }).toList(),
+                      ))));
             },
           )
         ],

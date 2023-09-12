@@ -1,12 +1,9 @@
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 import 'package:path_provider/path_provider.dart';
-
-
 import 'video_data.dart';
 import 'vlc_player_with_controls.dart';
 
@@ -37,8 +34,7 @@ class _SingleTabState extends State<SingleTab> {
     //
     listVideos.add(VideoData(
       name: 'Network Video 1',
-      path:
-      'http://samples.mplayerhq.hu/MPEG-4/embedded_subs/1Video_2Audio_2SUBs_timed_text_streams_.mp4',
+      path: 'http://samples.mplayerhq.hu/MPEG-4/embedded_subs/1Video_2Audio_2SUBs_timed_text_streams_.mp4',
       type: VideoType.network,
     ));
     //
@@ -50,8 +46,7 @@ class _SingleTabState extends State<SingleTab> {
     //
     listVideos.add(VideoData(
       name: 'HLS Streaming Video 1',
-      path:
-      'http://demo.unified-streaming.com/video/tears-of-steel/tears-of-steel.ism/.m3u8',
+      path: 'http://demo.unified-streaming.com/video/tears-of-steel/tears-of-steel.ism/.m3u8',
       type: VideoType.network,
     ));
     //
@@ -145,8 +140,7 @@ class _SingleTabState extends State<SingleTab> {
               });
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(
-                      'The recorded video file has been added to the end of list.'),
+                  content: Text('The recorded video file has been added to the end of list.'),
                 ),
               );
             },
@@ -173,30 +167,26 @@ class _SingleTabState extends State<SingleTab> {
                 iconData = Icons.videocam;
                 break;
             }
-            return
-              ListTile(
+            return ListTile(
               dense: true,
               selected: selectedVideoIndex == index,
               selectedTileColor: Colors.black54,
               leading: Icon(
                 iconData,
-                color:
-                selectedVideoIndex == index ? Colors.white : Colors.black,
+                color: selectedVideoIndex == index ? Colors.white : Colors.black,
               ),
               title: Text(
                 video.name,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
-                  color:
-                  selectedVideoIndex == index ? Colors.white : Colors.black,
+                  color: selectedVideoIndex == index ? Colors.white : Colors.black,
                 ),
               ),
               subtitle: Text(
                 video.path,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
-                  color:
-                  selectedVideoIndex == index ? Colors.white : Colors.black,
+                  color: selectedVideoIndex == index ? Colors.white : Colors.black,
                 ),
               ),
               onTap: () async {

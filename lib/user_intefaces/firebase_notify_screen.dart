@@ -1,5 +1,6 @@
 import 'package:firebaseflutterproject/user_intefaces/notification_services.dart';
 import 'package:flutter/material.dart';
+
 class Firebase_notify_screen extends StatefulWidget {
   const Firebase_notify_screen({Key? key}) : super(key: key);
 
@@ -8,7 +9,8 @@ class Firebase_notify_screen extends StatefulWidget {
 }
 
 class _Firebase_notify_screenState extends State<Firebase_notify_screen> {
-  NotificationServices notificationServices=NotificationServices();
+  NotificationServices notificationServices = NotificationServices();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -19,15 +21,15 @@ class _Firebase_notify_screenState extends State<Firebase_notify_screen> {
     notificationServices.getDeviceToken().then((value) {
       print("FCM TOKEN IS ${value}");
     });
-  //  notificationServices.isTokenRefresh();
+    //  notificationServices.isTokenRefresh();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("nf"),
       ),
-
     );
   }
 }

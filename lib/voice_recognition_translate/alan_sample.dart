@@ -1,18 +1,16 @@
+import 'dart:convert';
 // ignore: unused_import
 import 'dart:typed_data';
 // ignore: unused_import
 import 'dart:ui' as ui;
-import 'dart:convert';
 
 import 'package:alan_voice/alan_voice.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 // ignore: unused_import
 import 'package:flutter/services.dart';
 
-
 class MyHomePage extends StatefulWidget {
-  MyHomePage({ Key? key, this.title = "Flutter example" }) : super(key: key);
+  MyHomePage({Key? key, this.title = "Flutter example"}) : super(key: key);
 
   final String title;
 
@@ -23,8 +21,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   _MyHomePageState() {
     /// Init Alan Button with project key from Alan Studio - log in to https://studio.alan.app, go to your project > Integrations > Alan SDK Key
-    AlanVoice.addButton(
-        "51ba2dbb4ed0c9ab13c9ef7b8e6e229f2e956eca572e1d8b807a3e2338fdd0dc/stage");
+    AlanVoice.addButton("51ba2dbb4ed0c9ab13c9ef7b8e6e229f2e956eca572e1d8b807a3e2338fdd0dc/stage");
 
     /// ... or init Alan Button with project key and additional params
     // var params = jsonEncode({"uuid":"111-222-333-444"});

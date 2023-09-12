@@ -1,6 +1,3 @@
-
-
-
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebaseflutterproject/user_intefaces/notification_settings.dart';
 
@@ -27,18 +24,16 @@ Future<void> listenToFCM() async {
   );
   print('FCM User Granted Permission: ${settings.authorizationStatus}');
 
-  FirebaseMessaging.onMessage.listen((RemoteMessage message)
-  {
- print("handleMessage  ${message.data['body']}");
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    print("handleMessage  ${message.data['body']}");
     //
     // Map<String,dynamic> data=jsonDecode(message.notification!.body.toString());
     // print("hello  ${data}");
     // print("_handleMessage  ${jsonDecode(message.notification!.body.toString())['name']}");
-  NotificationService().showNotification(title: message.notification!.title,body: message.notification!.body);
+    NotificationService().showNotification(title: message.notification!.title, body: message.notification!.body);
   });
   FirebaseMessaging.onMessageOpenedApp.listen(_handleMessage);
   FirebaseMessaging.onBackgroundMessage(_handleMessage);
-
 }
 
 Future<void> _handleMessage(RemoteMessage message) async {

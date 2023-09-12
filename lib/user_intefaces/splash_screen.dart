@@ -1,5 +1,6 @@
 import 'package:firebaseflutterproject/firebase_services/splash_services.dart';
 import 'package:flutter/material.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -8,8 +9,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  SplashServices splashServices=SplashServices();
-
+  SplashServices splashServices = SplashServices();
 
   @override
   void initState() {
@@ -18,15 +18,16 @@ class _SplashScreenState extends State<SplashScreen> {
     splashServices.isLogin(context);
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Colors.white,
       // appBar: AppBar(title: Text("Splash Screen"),),
       body: Center(
-        child: Text("Firebase Tutorials",style: TextStyle(color: Colors.white),),
+        child: Text(
+          "Firebase Tutorials",
+          style: TextStyle(color: Colors.white),
+        ),
       ),
     );
   }

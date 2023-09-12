@@ -11,7 +11,10 @@ class Command {
 }
 
 class Utils {
-  static String _executeCommand({required String text, required String command,}) {
+  static String _executeCommand({
+    required String text,
+    required String command,
+  }) {
     print("executeCommand ${text} command ${command}");
     final commandIndex = text.indexOf(command);
     final finalIndex = commandIndex + command.length;

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 /// Flutter code sample for [RawAutocomplete].
 
-
-
 class AutocompleteExampleApp extends StatelessWidget {
   const AutocompleteExampleApp({super.key});
 
@@ -65,23 +63,20 @@ class AutocompleteCustomTypeExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return RawAutocomplete<User>(
       optionsBuilder: (TextEditingValue textEditingValue) {
-        return
-          _userOptions.where((User option) {
-            print("options is${option}");
-            // Search based on User.toString, which includes both name and
-            // email, even though the display string is just the name.
-            return option
-                .toString()
-                .contains(textEditingValue.text.toLowerCase());
-          });
+        return _userOptions.where((User option) {
+          print("options is${option}");
+          // Search based on User.toString, which includes both name and
+          // email, even though the display string is just the name.
+          return option.toString().contains(textEditingValue.text.toLowerCase());
+        });
       },
       displayStringForOption: _displayStringForOption,
       fieldViewBuilder: (
-          BuildContext context,
-          TextEditingController textEditingController,
-          FocusNode focusNode,
-          VoidCallback onFieldSubmitted,
-          ) {
+        BuildContext context,
+        TextEditingController textEditingController,
+        FocusNode focusNode,
+        VoidCallback onFieldSubmitted,
+      ) {
         return TextFormField(
           controller: textEditingController,
           focusNode: focusNode,
@@ -90,8 +85,7 @@ class AutocompleteCustomTypeExample extends StatelessWidget {
           },
         );
       },
-      optionsViewBuilder: (BuildContext context,
-          AutocompleteOnSelected<User> onSelected, Iterable<User> options) {
+      optionsViewBuilder: (BuildContext context, AutocompleteOnSelected<User> onSelected, Iterable<User> options) {
         return Align(
           alignment: Alignment.topLeft,
           child: Material(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vlc_player/flutter_vlc_player.dart';
+
 // class  Video_player_Ex extends StatefulWidget {
 //   Video_player_Ex({super.key});
 //
@@ -157,7 +158,7 @@ import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 // }
 //
 // example3
-class  Video_player_Ex extends StatefulWidget {
+class Video_player_Ex extends StatefulWidget {
   Video_player_Ex({super.key});
 
   @override
@@ -165,41 +166,34 @@ class  Video_player_Ex extends StatefulWidget {
 }
 
 class _Video_player_ExState extends State<Video_player_Ex> {
+  String urlToStreamVideo = "https://media.w3.org/2010/05/sintel/trailer.mp4";
+  VlcPlayerController controller = VlcPlayerController.network(
+      autoPlay: false,
+      hwAcc: HwAcc.full,
+      "https://media.w3.org/2010/05/sintel/trailer.mp4",
+      options: VlcPlayerOptions(
+        advanced: VlcAdvancedOptions([
+          VlcAdvancedOptions.networkCaching(2000),
+        ]),
+        subtitle: VlcSubtitleOptions([
+          VlcSubtitleOptions.boldStyle(true),
+          VlcSubtitleOptions.fontSize(30),
+          VlcSubtitleOptions.outlineColor(VlcSubtitleColor.yellow),
+          VlcSubtitleOptions.outlineThickness(VlcSubtitleThickness.normal),
+          // works only on externally added subtitles
+          VlcSubtitleOptions.color(VlcSubtitleColor.navy),
+        ]),
+        http: VlcHttpOptions([
+          VlcHttpOptions.httpReconnect(true),
+        ]),
+        rtp: VlcRtpOptions([
+          VlcRtpOptions.rtpOverRtsp(true),
+        ]),
+      ));
 
-   String urlToStreamVideo="https://media.w3.org/2010/05/sintel/trailer.mp4";
-   VlcPlayerController controller=VlcPlayerController.network(
-     autoPlay:false,
-     hwAcc:HwAcc.full,
-     "https://media.w3.org/2010/05/sintel/trailer.mp4",
-       options:VlcPlayerOptions(
-         advanced: VlcAdvancedOptions([
-           VlcAdvancedOptions.networkCaching(2000),
-         ]),
-         subtitle: VlcSubtitleOptions([
-           VlcSubtitleOptions.boldStyle(true),
-           VlcSubtitleOptions.fontSize(30),
-           VlcSubtitleOptions.outlineColor(VlcSubtitleColor.yellow),
-           VlcSubtitleOptions.outlineThickness(VlcSubtitleThickness.normal),
-           // works only on externally added subtitles
-           VlcSubtitleOptions.color(VlcSubtitleColor.navy),
-         ]),
-         http: VlcHttpOptions([
-           VlcHttpOptions.httpReconnect(true),
-         ]),
-         rtp: VlcRtpOptions([
-           VlcRtpOptions.rtpOverRtsp(true),
-         ]),
-       )
-
-   );
-
-
- videoInitialize() {
-
-
-   print("conteoller initialze ${controller.dataSource} ${controller.hasListeners}");
-
- }
+  videoInitialize() {
+    print("conteoller initialze ${controller.dataSource} ${controller.hasListeners}");
+  }
 
   //  final VlcPlayerController controller1 = VlcPlayerController.network(
   //   "https://media.w3.org/2010/05/sintel/trailer.mp4",
@@ -208,25 +202,20 @@ class _Video_player_ExState extends State<Video_player_Ex> {
   //   options: VlcPlayerOptions(),
   // );
 
-   int playerWidth = 640;
-   int playerHeight = 360;
-
-
+  int playerWidth = 640;
+  int playerHeight = 360;
 
   @override
   void initState() {
-  WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-    videoInitialize();
-
-  });
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      videoInitialize();
+    });
     super.initState();
-
   }
 
   @override
   void dispose() async {
     super.dispose();
-
   }
 
   @override
@@ -234,44 +223,30 @@ class _Video_player_ExState extends State<Video_player_Ex> {
     return Scaffold(
         appBar: AppBar(),
         body: Center(
-          child:
-          controller.dataSource.isNotEmpty ?
-          Column(
-            children: [
-              Text("video"),
-
-
-              SizedBox(
-                  height: 640,
-                  width: 390,
-                  child:  VlcPlayer(
-                    aspectRatio: 16 / 9,
-                    controller: controller,
-                    placeholder: Center(child: CircularProgressIndicator()),
-
-                  )
-              ),
-
-              IconButton(onPressed: (){
-                print("contoller status ${controller.isPlaying()}");
-                controller.play();
-              }, icon: Icon(Icons.play_arrow,size: 32,)
-              )
-            ],
-          )
-              :
-          Center(child: CircularProgressIndicator()),
-        )
-    );
-
+          child: controller.dataSource.isNotEmpty
+              ? Column(
+                  children: [
+                    Text("video"),
+                    SizedBox(
+                        height: 640,
+                        width: 390,
+                        child: VlcPlayer(
+                          aspectRatio: 16 / 9,
+                          controller: controller,
+                          placeholder: Center(child: CircularProgressIndicator()),
+                        )),
+                    IconButton(
+                        onPressed: () {
+                          print("contoller status ${controller.isPlaying()}");
+                          controller.play();
+                        },
+                        icon: Icon(
+                          Icons.play_arrow,
+                          size: 32,
+                        ))
+                  ],
+                )
+              : Center(child: CircularProgressIndicator()),
+        ));
   }
 }
-
-
-
-
-
-
-
-
-
