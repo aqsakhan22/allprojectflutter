@@ -57,6 +57,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.2"
+  bonsoir:
+    dependency: transitive
+    description:
+      name: bonsoir
+      sha256: "7c7beb1f47729526235b55ea82ceac7f7897eee419c39b28a0780c0d276875fa"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1+2"
+  bonsoir_platform_interface:
+    dependency: transitive
+    description:
+      name: bonsoir_platform_interface
+      sha256: "12b4d64ddedeb9dd48d5569a73d30518345babffbcf4c13b6b31043449da5e83"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0+1"
   boolean_selector:
     dependency: transitive
     description:
@@ -65,6 +81,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  cast:
+    dependency: "direct dev"
+    description:
+      name: cast
+      sha256: "8f1cfb6649227a07e7dbadc24cad759b59de68e287794eac046211852bf32aeb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
   characters:
     dependency: transitive
     description:
@@ -273,6 +297,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.6.5"
+  fixnum:
+    dependency: transitive
+    description:
+      name: fixnum
+      sha256: "25517a4deb0c03aa0f32fd12db525856438902d9c16536311e76cdc57b31d7d1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -339,6 +371,22 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_vlc_player:
+    dependency: "direct dev"
+    description:
+      name: flutter_vlc_player
+      sha256: "0fbe714db09646617e46610195f5d81086d41d065a6301f2bb728a07f09f96b9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.2.0"
+  flutter_vlc_player_platform_interface:
+    dependency: transitive
+    description:
+      name: flutter_vlc_player_platform_interface
+      sha256: "8562d5c31213a44cc5e009cb6776a030e0a0c8cbfb825da4fdf27b730170563c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.2"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -521,7 +569,7 @@ packages:
     source: hosted
     version: "1.8.2"
   path_provider:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: path_provider
       sha256: "909b84830485dbcd0308edf6f7368bc8fd76afa26a270420f34cabea2a6467a0"
@@ -608,6 +656,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.2.4"
+  protobuf:
+    dependency: transitive
+    description:
+      name: protobuf
+      sha256: "01dd9bd0fa02548bf2ceee13545d4a0ec6046459d847b6b061d8a27237108a08"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
   provider:
     dependency: "direct dev"
     description:
