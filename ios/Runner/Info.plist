@@ -57,5 +57,37 @@
 	<string>Recognize and display speech input</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Detect Speech Input</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_dartobservatory._tcp</string>
+	</array>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
+	<key></key>
+	<string></string>
+	<key>NSCameraUsageDescription</key>
+    	<string>This app requires access to the camera to capture photons and upload in social feed and chats.</string>
+    	<key>NSHumanReadableCopyright</key>
+    	<string>Run with pty ltd</string>
+    	<key>NSLocalNetworkUsageDescription</key>
+    	<string>This app uses the local network to discover Cast-enabled devices on your WiFi network to play training videos.</string>
+    	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    	<string>This app needs access to location when open and in the background while your are running to keep the record of your running pace, distance and time.</string>
+    	<key>NSLocationAlwaysUsageDescription</key>
+    	<string>This app needs access to location when open and in the background while your are running to keep the record of your running pace, distance and time.</string>
+    	<key>NSLocationWhenInUseUsageDescription</key>
+    	<string>This app needs access to location when open and in the background while your are running to keep the record of your running pace, distance and time.</string>
+    	<key>NSLocationUsageDescription</key>
+    	<string>Need location access for updating nearby friends</string>
+    	<key>NSMicrophoneUsageDescription</key>
+    	<string>This app needs access to Microphone to run audios while running.</string>
+    	<key>NSPhotoLibraryAddUsageDescription</key>
+    	<string>This app requires access to the photo library to add media in social feed, chat and user profile.</string>
+    	<key>NSPhotoLibraryUsageDescription</key>
+    	<string>This app requires access to the photo library to add media in social feed, chat and user profile.</string>
+    	<key>NSRemindersUsageDescription</key>
+    	<string>This app requires access to the reminders and scheduled timers.</string>
+    	<key>NSAppleMusicUsageDescription</key>
+    	<string>This app requires access to the players to Run Background Audios of Running Marker.</string>
 </dict>
 </plist>

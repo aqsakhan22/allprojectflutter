@@ -1,0 +1,33 @@
+https://github.com/facebook/react-native/issues/35215
+
+# COMMANDS - Muhammad Hassan
+# /Users/novusaltairkarachi/AndroidStudioProjects/flutter_3.7.11/bin/flutter
+# flutter doctor --verbose
+# flutter pub run flutter_native_splash:create
+# flutter pub run flutter_launcher_icons:main
+# bin/flutter clean
+# lutter pub cache repair
+# flutter pub cache clean
+# /Users/novusaltairkarachi/AndroidStudioProjects/flutter_3.7.11/bin/cache/dart-sdk/bin/dart pub global activate flutterfire_cli
+# flutter build apk --release
+# flutter build apk --release --verbose --obfuscate --split-debug-info=novus-guard-solo-flutter/symbols
+# flutter build apk --release --no-tree-shake-icons
+# flutter build apk --release --no-tree-shake-icons --verbose --obfuscate --split-debug-info=novus-guard-pro-flutter/symbols
+# flutter build appbundle --release --no-tree-shake-icons --verbose --obfuscate --split-debug-info=novus-guard-pro-flutter/symbols
+
+# COMMANDS - Aqsa Khan
+# /Users/novusaltair/Desktop/AndroidStudioProjects/flutter_v3.3.7/bin/flutter pub run build_runner build --delete-conflicting-outputs
+# /Users/novusaltair/Desktop/AndroidStudioProjects/flutter_v3.3.7/bin/flutter pub run flutter_native_splash:create
+# /Users/novusaltair/Desktop/AndroidStudioProjects/flutter_v3.3.7/bin/flutter pub run flutter_launcher_icons:main
+# /Users/novusaltair/Desktop/AndroidStudioProjects/flutter_v3.3.7/bin/flutter clean
+# export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
+#  ssh-add ~/{sshkey_bitbucket}
+
+ /Users/novusaltairuser07/Desktop/AndriodProjects/flutter_3.7.11/bin/flutter build appbundle --release --no-tree-shake-icons --verbose --obfuscate --split-debug-info=novus-guard-pro-flutter/symbols
+
+ flutter build apk --no-tree-shake-icons
+keytool -genkey -v -keystore ~/runwith.jks -keyalg RSA -keysize 2048 -validity 10000 -alias runwith
+flutter build ios --no-tree-shake-icons
+
+
+

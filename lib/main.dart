@@ -1,32 +1,64 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebaseflutterproject/examples/multiple_floating_buttons.dart';
 import 'package:firebaseflutterproject/firebase_options.dart';
+import 'package:firebaseflutterproject/firebase_services/fcm_controller.dart';
 import 'package:firebaseflutterproject/socketLearning/socket_initialization.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/count_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/example_one.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/favourite_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/theme_provider.dart';
+import 'package:firebaseflutterproject/user_intefaces/notification_settings.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:permission_handler/permission_handler.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  debugDefaultTargetPlatformOverride = TargetPlatform.android;
-  // NotificationService().initNotification();
-
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-
+  // debugDefaultTargetPlatformOverride = TargetPlatform.android;
+  //  NotificationService().initNotification();
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
+  //
+  //
   // await listenToFCM();
-  WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-    //initialize socket
-    SoccketIntegration().initSocket();
-  });
+  await askPermission();
+  // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+  //   //initialize socket
+  //   SoccketIntegration().initSocket();
+  // });
   runApp(const MyApp());
 }
 
+askPermission() async {
+  print("Ask permission");
+
+  Map<Permission, PermissionStatus> statuses = await [
+    Permission.notification,
+    // Permission.locationWhenInUse,
+    // Permission.locationAlways,
+    Permission.location,
+    Permission.camera,
+    Permission.mediaLibrary,
+    Permission.audio,
+    // Permission.notification
+  ].request();
+  Permission.location.status.isDenied.then((value) async {
+    print("locationWhenInUse ${statuses[Permission.locationWhenInUse]}");
+    print("locationAlways ${statuses[Permission.locationAlways]}");
+    print("location ${statuses[Permission.location]}");
+    print("camera ${statuses[Permission.camera]}");
+    print("mediaLibrary ${statuses[Permission.mediaLibrary]}");
+    print("audio ${statuses[Permission.audio]}");
+    print("notification ${statuses[Permission.notification]}");
+  });
+  if (await Permission.manageExternalStorage.request().isGranted) {
+    print("manageExternalStorage Denied settings");
+    // AppSettings.openAppSettings();
+  }
+}
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
