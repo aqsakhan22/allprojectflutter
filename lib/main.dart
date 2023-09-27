@@ -12,7 +12,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:permission_handler/permission_handler.dart';
-
+import 'package:sizer/sizer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -77,22 +77,27 @@ class MyApp extends StatelessWidget {
         builder: (BuildContext context) {
           final themeChanger = Provider.of<ThemeProvider>(context);
 
-          return MaterialApp(
-            title: 'Flutter Demo',
-            themeMode: themeChanger.themeMode,
-            theme: ThemeData(brightness: Brightness.light, primarySwatch: Colors.red, primaryColor: Colors.purple),
-            darkTheme: ThemeData(
-                primarySwatch: Colors.blue,
-                brightness: Brightness.dark,
-                primaryColor: Colors.red,
-                iconTheme: IconThemeData(color: Colors.red),
-                appBarTheme: AppBarTheme(
+          return Sizer(builder: (BuildContext context, Orientation orientation, DeviceType deviceType) {
+
+            return         MaterialApp(
+              title: 'Flutter Demo',
+              themeMode: themeChanger.themeMode,
+              theme: ThemeData(brightness: Brightness.light, primarySwatch: Colors.red, primaryColor: Colors.purple),
+              darkTheme: ThemeData(
+                  primarySwatch: Colors.blue,
+                  brightness: Brightness.dark,
+                  primaryColor: Colors.red,
+                  iconTheme: IconThemeData(color: Colors.red),
+                  appBarTheme: AppBarTheme(
                     // color: Colors.blue,
-                    backgroundColor: Colors.blue)),
-            // home: LoginScreen(),
-            home: MultipleFloatingBtns(),
-            // initialRoute: RoutesName.login,
-            // onGenerateRoute: Routes.generateRoute,
+                      backgroundColor: Colors.blue)),
+              // home: LoginScreen(),
+              home: MultipleFloatingBtns(),
+              // initialRoute: RoutesName.login,
+              // onGenerateRoute: Routes.generateRoute,
+            );
+          },
+
           );
         },
       ),
