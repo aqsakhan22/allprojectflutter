@@ -39,17 +39,6 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   firebase_messaging: ^14.6.5
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
-  flutter_lints: ^2.0.0
   firebase_core: ^2.15.0
   firebase_auth: ^4.7.1
   cloud_firestore: ^4.8.3
@@ -72,7 +61,7 @@ dev_dependencies:
   flutter_speech: ^2.0.0
   translator: ^0.1.7
   flutter_speed_dial: ^7.0.0
-#  google_maps_flutter: ^2.2.3
+    #  google_maps_flutter: ^2.2.3
   cast: ^1.1.1
   flutter_vlc_player: ^7.1.4
   path_provider: ^2.0.8
@@ -84,6 +73,21 @@ dev_dependencies:
   sizer: ^2.0.15
   flutter_svg:
   share_plus: ^7.0.0
+  fl_chart: ^0.62.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^2.0.0
+
+
 
 #  app_settings: ^4.2.0
 
