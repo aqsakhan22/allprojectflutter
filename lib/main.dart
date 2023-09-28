@@ -1,4 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebaseflutterproject/Design_Pattern/mvvm/view/usersscreen.dart';
+import 'package:firebaseflutterproject/Design_Pattern/mvvm/viewmodel/userViewModel.dart';
+import 'package:firebaseflutterproject/bflow/my_view_model.dart';
 import 'package:firebaseflutterproject/examples/multiple_floating_buttons.dart';
 import 'package:firebaseflutterproject/firebase_options.dart';
 import 'package:firebaseflutterproject/firebase_services/fcm_controller.dart';
@@ -72,6 +75,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => colorchange()),
         ChangeNotifierProvider(create: (_) => FavouriteProvider()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => UserViewModel()),
+        ChangeNotifierProvider(create: (_) => MyViewModel()),
       ],
       child: Builder(
         builder: (BuildContext context) {
@@ -92,7 +97,7 @@ class MyApp extends StatelessWidget {
                     // color: Colors.blue,
                       backgroundColor: Colors.blue)),
               // home: LoginScreen(),
-              home: MultipleFloatingBtns(),
+              home: UserScreen(),
               // initialRoute: RoutesName.login,
               // onGenerateRoute: Routes.generateRoute,
             );
