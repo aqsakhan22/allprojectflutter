@@ -30,17 +30,9 @@ class UserClient{
     try {
       var url = Uri.parse('https://jsonplaceholder.typicode.com/users');
      var response = await http.get(url,);
-     print('get all data of users is ${response.body} ${response.statusCode}');
-
-      var parsed = jsonDecode(response.body);
-      print("Decoded data is ${parsed}");
-
-
-    List<UserModel>.from(parsed.map((x) => UserModel.fromJson(x)));
-      print("users list is ${List<UserModel>.from(parsed.map((x) => UserModel.fromJson(x)))}");
-     print("");
-      return     List<UserModel>.from(parsed.map((x) => UserModel.fromJson(x)));
-
+     List<dynamic> parsed = jsonDecode(response.body);
+      print("Decoded parse data is ${parsed}");
+      return  List<UserModel>.from(parsed.map((x) => UserModel.fromJson(x)));
     } catch (e) {
       return Future.error(e.toString());
     }

@@ -22,8 +22,7 @@ class UserViewModel extends MyViewModel{
  Future<void> usersApiList() async {
     setState(ViewState.busy);
     try {
-       usersList.users=  await UserClient().getUsersList();
-       print("user List is ${usersList.users}");
+       usersList.users =  await UserClient().getUsersList();
       setState(ViewState.idle);
     } catch (e) {
       setState(ViewState.idle);

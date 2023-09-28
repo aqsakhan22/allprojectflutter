@@ -38,6 +38,8 @@ class _UserScreenState extends State<UserScreen> {
           }, child: Text("check data")),
 
 
+
+
           Consumer<UserViewModel>(
               builder: (context, model, child) {
               return  (model.getSearchState == ViewState.idle) ?
@@ -45,7 +47,17 @@ class _UserScreenState extends State<UserScreen> {
                   itemCount: model.usersList.users.length,
                   itemBuilder: (BuildContext context,int index){
 
-                    return Text("hello ${model.usersList.users[index].id}");
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                    Text("hello ${model.usersList.users[index].id}"),
+                   IconButton(onPressed: (){
+                     model.usersList.users.add(UserModel(
+                       id: 11
+                     ));
+                     model.notifyListeners();
+                   }, icon:     Icon(Icons.add))
+                    ],);
                   }))
 
                     :

@@ -7,7 +7,7 @@ class MyViewModel extends ChangeNotifier{
   ViewState get getSearchState => _searchState;
   void setState(ViewState viewState) {
     _state = viewState;
-    notifyListeners();
+    // notifyListeners();
   }
 
 }

@@ -84,6 +84,7 @@ dev_dependencies:
   sizer: ^2.0.15
   flutter_svg:
   share_plus: ^7.0.0
+  fl_chart: ^0.62.0
 
 #  app_settings: ^4.2.0
 

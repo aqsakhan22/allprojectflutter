@@ -2,7 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebaseflutterproject/Design_Pattern/mvvm/view/usersscreen.dart';
 import 'package:firebaseflutterproject/Design_Pattern/mvvm/viewmodel/userViewModel.dart';
 import 'package:firebaseflutterproject/bflow/my_view_model.dart';
+import 'package:firebaseflutterproject/examples/graphTesting.dart';
 import 'package:firebaseflutterproject/examples/multiple_floating_buttons.dart';
+import 'package:firebaseflutterproject/examples/piechartEx.dart';
 import 'package:firebaseflutterproject/firebase_options.dart';
 import 'package:firebaseflutterproject/firebase_services/fcm_controller.dart';
 import 'package:firebaseflutterproject/socketLearning/socket_initialization.dart';
@@ -97,7 +99,7 @@ class MyApp extends StatelessWidget {
                     // color: Colors.blue,
                       backgroundColor: Colors.blue)),
               // home: LoginScreen(),
-              home: UserScreen(),
+              home: PieChartSample3(),
               // initialRoute: RoutesName.login,
               // onGenerateRoute: Routes.generateRoute,
             );

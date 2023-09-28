@@ -52,8 +52,6 @@ class UserModel{
 
 
 
-
-
 }
 
 class Address{
