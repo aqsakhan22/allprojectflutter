@@ -96,7 +96,7 @@ class SectorsList extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 2.h),
-          child: const Row(
+          child:  Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               SectorButton(),
