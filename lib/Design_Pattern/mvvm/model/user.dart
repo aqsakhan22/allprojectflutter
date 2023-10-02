@@ -5,7 +5,6 @@
 
 class UserList{
   List<UserModel> users=[];
-
 }
 class UserModel{
   int? id;

@@ -115,8 +115,6 @@ class StateService {
     'TELANGANA',
     'LADAKH'
   ];
-
-
   static List<String> getSuggestions(String query) {
     List<String> matches = [];
     matches.addAll(states);

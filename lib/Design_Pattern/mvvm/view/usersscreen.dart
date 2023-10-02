@@ -3,6 +3,7 @@ import 'package:firebaseflutterproject/Design_Pattern/mvvm/model/user.dart';
 import 'package:firebaseflutterproject/Design_Pattern/mvvm/viewmodel/userViewModel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'userSearch.dart';
 
 class UserScreen extends StatefulWidget {
   const UserScreen({Key? key}) : super(key: key);
@@ -20,8 +21,9 @@ class _UserScreenState extends State<UserScreen> {
     // TODO: implement initState
     final instance = Provider.of<UserViewModel>(context, listen: false);
     // instance.usersApi(users);
-     instance.usersApiList();
-
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      instance.usersApiList();
+    });
 
   }
   @override
@@ -33,16 +35,18 @@ class _UserScreenState extends State<UserScreen> {
       body: Column(
         children: [
           ElevatedButton(onPressed: (){
-            final instance = Provider.of<UserViewModel>(context, listen: false);
-            instance.usersApiList();
-          }, child: Text("check data")),
+            // final instance = Provider.of<UserViewModel>(context, listen: false);
+            // instance.usersApiList();
+            Navigator.push(context, MaterialPageRoute(builder: (context) => UserSearch()));
+          }, child: Text("User Search")),
 
 
 
 
           Consumer<UserViewModel>(
               builder: (context, model, child) {
-              return  (model.getSearchState == ViewState.idle) ?
+
+              return  (model.state == ViewState.idle) ?
               Expanded(child: ListView.builder(shrinkWrap: true,
                   itemCount: model.usersList.users.length,
                   itemBuilder: (BuildContext context,int index){
@@ -50,7 +54,7 @@ class _UserScreenState extends State<UserScreen> {
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                    Text("hello ${model.usersList.users[index].id}"),
+                    Text("hello ${model.usersList.users[index].id} ${model.usersList.users[index].name}"),
                    IconButton(onPressed: (){
                      model.usersList.users.add(UserModel(
                        id: 11

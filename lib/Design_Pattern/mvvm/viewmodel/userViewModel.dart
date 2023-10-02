@@ -5,9 +5,8 @@ import 'package:firebaseflutterproject/Design_Pattern/mvvm/api/userClient.dart';
 import 'package:firebaseflutterproject/Design_Pattern/mvvm/model/user.dart';
 
 class UserViewModel extends MyViewModel{
-  UserModel users=UserModel();
+  UserModel users=UserModel(id: null);
   UserList usersList=UserList();
-
   Future<void> usersApi(UserModel users) async {
     setState(ViewState.busy);
     try {
