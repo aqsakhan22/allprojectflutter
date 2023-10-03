@@ -5,6 +5,7 @@ import 'package:firebaseflutterproject/bflow/my_view_model.dart';
 import 'package:firebaseflutterproject/examples/graphTesting.dart';
 import 'package:firebaseflutterproject/examples/multiple_floating_buttons.dart';
 import 'package:firebaseflutterproject/examples/piechartEx.dart';
+import 'package:firebaseflutterproject/examples/tabView/NavigationScreen.dart';
 import 'package:firebaseflutterproject/firebase_options.dart';
 import 'package:firebaseflutterproject/firebase_services/fcm_controller.dart';
 import 'package:firebaseflutterproject/socketLearning/socket_initialization.dart';
@@ -99,7 +100,7 @@ class MyApp extends StatelessWidget {
                     // color: Colors.blue,
                       backgroundColor: Colors.blue)),
               // home: LoginScreen(),
-              home: UserScreen(),
+              home: NavigationScreen(),
               // initialRoute: RoutesName.login,
               // onGenerateRoute: Routes.generateRoute,
             );
