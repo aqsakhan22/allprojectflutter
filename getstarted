@@ -26,6 +26,11 @@ git config --list
  git push origin -u NotesAppServer
 
 
+ sample vide for removing git access in maos
+ https://www.google.com/search?q=unable+to+access+git+in+mac&sca_esv=571184275&rlz=1C5GCEM_enPK991PK991&sxsrf=AM9HkKkG5vzX3s_ifwjbd38sReOkQpVUxA%3A1696567453453&ei=nZAfZfunG-SZkdUP0sSA-AQ&ved=0ahUKEwi76pmjzuCBAxXkTKQEHVIiAE8Q4dUDCBA&uact=5&oq=unable+to+access+git+in+mac&gs_lp=Egxnd3Mtd2l6LXNlcnAiG3VuYWJsZSB0byBhY2Nlc3MgZ2l0IGluIG1hYzIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIIEAAYigUYhgMyCBAAGIoFGIYDMggQABiKBRiGAzIIEAAYigUYhgNIoGVQAFiKYXAAeAGQAQCYAZICoAH6MqoBBDItMje4AQPIAQD4AQHCAgcQIxiKBRgnwgIEECMYJ8ICBxAAGIoFGEPCAggQABiKBRiRAsICDRAuGIoFGMcBGNEDGEPCAgsQABiABBixAxiDAcICCBAuGLEDGIAEwgIFEAAYgATCAg4QLhiABBixAxjHARjRA8ICChAAGIAEGBQYhwLiAwQYACBBiAYB&sclient=gws-wiz-serp#fpstate=ive&ip=1&vld=cid:330998da,vid:G49fPkYusfQ,st:0
+
+aws -> flutter
+https://aws.amazon.com/getting-started/hands-on/build-flutter-mobile-app-part-one/
 
 
 
