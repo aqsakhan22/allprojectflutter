@@ -1,0 +1,31 @@
+npm init
+npm install express
+rm -rf node_modules
+rm package-lock.json yarn.lock
+npm cache clear --force
+for mongo db 
+username : aqsakhan19966 password : aqsakhan1234
+npm install -g nodemon // use for if any change we in site directly hit to websiet no need to restart server
+npx nodemon server.js //  for running 
+npm run dev
+
+<!-- Git code -->
+
+git remote rm origin
+git config --local user.email [your email address here]
+git config --global user.name [your name here]
+git config --list
+
+
+<!-- Git initailization  -->
+ git init
+ git add . 
+ git remote add origin https://github.com/aqsakhan22/allprojectflutter.git
+ git branch
+ git checkout -b NotesAppServer
+ git push origin -u NotesAppServer
+
+
+
+
+
