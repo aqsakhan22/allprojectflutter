@@ -32,5 +32,9 @@ git config --list
 aws -> flutter
 https://aws.amazon.com/getting-started/hands-on/build-flutter-mobile-app-part-one/
 
+netlify
+ npm install netlify-lambda serverless-http
+https://www.youtube.com/watch?v=AjaGmTVBIfI
+
 
 
