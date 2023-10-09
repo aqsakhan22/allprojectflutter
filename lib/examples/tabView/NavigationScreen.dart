@@ -50,8 +50,14 @@ class _NavigationScreenState extends State<NavigationScreen> {
             itemBuilder: (context, index) {
               // Navigator.push(context, MaterialPageRoute(builder: (context) => Simple1()));
               return InkWell(onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Simple1()));
-
+               // Navigator.push(context, MaterialPageRoute(builder: (context) => Simple1()));
+                PersistentNavBarNavigator.pushNewScreen(
+                  context,
+                  screen: const Simple1(),
+                  withNavBar: true,
+                  pageTransitionAnimation:
+                  PageTransitionAnimation.cupertino,
+                );
               },
 
                 child: Container(
@@ -76,6 +82,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
             icon: const Icon(Icons.shop),
             inactiveColorPrimary: Colors.blueGrey,
             activeColorPrimary: Colors.redAccent,
+            onPressed: (_){
+              mController.jumpToTab(0);
+
+            }
           ),
           PersistentBottomNavBarItem(
             title: 'store',
