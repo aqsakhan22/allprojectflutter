@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 const db = require('mongoose');
 const bodyPaser=require('body-parser');
-const serverless=require('serverless-http');
+
 
 app.use(bodyPaser.urlencoded({extended:false})); // we use app.use for to puts the specified middleware functions at the specified path
 // if we use nested objects we have to keep this params true other wise false 
@@ -27,7 +27,8 @@ db.connect("mongodb+srv://aqsakhan19966:aqsakhan1234@cluster0.dfgssqj.mongodb.ne
    });
     
    const notesRouter=require('./routes/Routes');
-   app.use('/.netlify/functions/api/notes',notesRouter); // example /notes/list 
+//    app.use('/notes',notesRouter); // example /notes/list 
+app.use('/notes',notesRouter); 
 
 
 });

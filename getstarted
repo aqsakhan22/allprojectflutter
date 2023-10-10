@@ -36,6 +36,7 @@ netlify
  npm install netlify-lambda serverless-http
 https://www.youtube.com/watch?v=AjaGmTVBIfI
 https://www.youtube.com/watch?v=q1TrsvKdpcU
+https://techmuzz.com/how-to/deploy-expressjs-api-on-netlify/
 
 
     "start": "node src/api.js",
