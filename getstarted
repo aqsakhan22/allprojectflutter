@@ -38,4 +38,6 @@ https://www.youtube.com/watch?v=AjaGmTVBIfI
 https://www.youtube.com/watch?v=q1TrsvKdpcU
 
 
-
+    "start": "node src/api.js",
+    "dev": "nodemon src/api.js",
+     "build":"npm i"
