@@ -1,23 +1,14 @@
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebaseflutterproject/Design_Pattern/mvvm/view/usersscreen.dart';
 import 'package:firebaseflutterproject/Design_Pattern/mvvm/viewmodel/userViewModel.dart';
+import 'package:firebaseflutterproject/Nodejs/NotesApp/AllNotes.dart';
+import 'package:firebaseflutterproject/Nodejs/NotesApp/notesProvider.dart';
 import 'package:firebaseflutterproject/bflow/my_view_model.dart';
-import 'package:firebaseflutterproject/examples/graphTesting.dart';
-import 'package:firebaseflutterproject/examples/multiple_floating_buttons.dart';
-import 'package:firebaseflutterproject/examples/piechartEx.dart';
-import 'package:firebaseflutterproject/examples/tabView/NavigationScreen.dart';
-import 'package:firebaseflutterproject/firebase_options.dart';
-import 'package:firebaseflutterproject/firebase_services/fcm_controller.dart';
-import 'package:firebaseflutterproject/socketLearning/socket_initialization.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/count_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/example_one.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/favourite_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/theme_provider.dart';
-import 'package:firebaseflutterproject/user_intefaces/notification_settings.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 void main() async {
@@ -80,6 +71,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => UserViewModel()),
         ChangeNotifierProvider(create: (_) => MyViewModel()),
+        ChangeNotifierProvider(create: (_) => NotesProvider()),
+
       ],
       child: Builder(
         builder: (BuildContext context) {
@@ -90,6 +83,7 @@ class MyApp extends StatelessWidget {
             return         MaterialApp(
               title: 'Flutter Demo',
               themeMode: themeChanger.themeMode,
+              debugShowCheckedModeBanner: false,
               theme: ThemeData(brightness: Brightness.light, primarySwatch: Colors.red, primaryColor: Colors.purple),
               darkTheme: ThemeData(
                   primarySwatch: Colors.blue,
@@ -100,7 +94,7 @@ class MyApp extends StatelessWidget {
                     // color: Colors.blue,
                       backgroundColor: Colors.blue)),
               // home: LoginScreen(),
-              home: NavigationScreen(),
+              home: GetNotes(),
               // initialRoute: RoutesName.login,
               // onGenerateRoute: Routes.generateRoute,
             );

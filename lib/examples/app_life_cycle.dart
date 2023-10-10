@@ -23,6 +23,8 @@ class _AppLifeCycleState extends State<AppLifeCycle> with WidgetsBindingObserver
     super.dispose();
   }
 
+
+
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     // TODO: implement didChangeAppLifecycleState
