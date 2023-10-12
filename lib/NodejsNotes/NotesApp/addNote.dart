@@ -1,10 +1,14 @@
-import 'package:firebaseflutterproject/Nodejs/NotesApp/models/notes.dart';
-import 'package:firebaseflutterproject/Nodejs/NotesApp/notesProvider.dart';
+
+import 'package:firebaseflutterproject/NodejsNotes/NotesApp/api_services/api.dart';
+import 'package:firebaseflutterproject/NodejsNotes/NotesApp/models/notes.dart';
+import 'package:firebaseflutterproject/NodejsNotes/NotesApp/notesProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import 'package:provider/provider.dart';
 class AddNote extends StatefulWidget {
-  const AddNote({Key? key}) : super(key: key);
+  final bool isUpdate;
+  final Notes? note;
+  const AddNote({Key? key, required this.isUpdate,  this.note}) : super(key: key);
 
   @override
   State<AddNote> createState() => _AddNoteState();
@@ -14,7 +18,16 @@ class _AddNoteState extends State<AddNote> {
   TextEditingController title=TextEditingController(text: '');
   TextEditingController content=TextEditingController(text: '');
 
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+   if(widget.isUpdate){
+     title.text=widget.note!.title!;
+     content.text=widget.note!.content!;
 
+   }
+  }
   void addNewNote(){
     Notes newNote =Notes(
        id: Uuid().v1(),
@@ -26,17 +39,27 @@ class _AddNoteState extends State<AddNote> {
     Provider.of<NotesProvider>(context,listen: false).addNote(newNote);
     Provider.of<NotesProvider>(context,listen: false).notifyListeners();
 
-    Navigator.pop(context);
+
 
   }
   @override
   Widget build(BuildContext context) {
     FocusNode noteFocus=FocusNode();
-    NotesProvider notesProvider=Provider.of<NotesProvider>(context,listen: false);
     return Scaffold(
       appBar: AppBar(
         actions: [IconButton(onPressed: (){
-          addNewNote();
+
+       if(widget.isUpdate){
+         print("update is");
+         widget.note!.title=title.text;
+         widget.note!.content=content.text;
+         Provider.of<NotesProvider>(context,listen: false).updateNote(widget.note!);
+         Navigator.pop(context);
+       }
+       else{
+         addNewNote();
+       }
+
         }, icon: Icon(Icons.save))],
 
         title: Text("Add Note"),
@@ -53,7 +76,7 @@ class _AddNoteState extends State<AddNote> {
                   noteFocus.requestFocus();
                 }
               },
-              autofocus: true,
+              autofocus: widget.isUpdate ? false : true  ,
               decoration: InputDecoration(
                 filled: true,
                 hintText: "Enter Title",

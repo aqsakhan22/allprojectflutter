@@ -1,6 +1,8 @@
 import 'package:firebaseflutterproject/Design_Pattern/mvvm/viewmodel/userViewModel.dart';
-import 'package:firebaseflutterproject/Nodejs/NotesApp/AllNotes.dart';
-import 'package:firebaseflutterproject/Nodejs/NotesApp/notesProvider.dart';
+import 'package:firebaseflutterproject/NodejsNotes/NotesApp/AllNotes.dart';
+import 'package:firebaseflutterproject/NodejsNotes/NotesApp/notesProvider.dart';
+import 'package:firebaseflutterproject/TopVariables.dart';
+
 import 'package:firebaseflutterproject/bflow/my_view_model.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/count_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/example_one.dart';
@@ -79,8 +81,8 @@ class MyApp extends StatelessWidget {
           final themeChanger = Provider.of<ThemeProvider>(context);
 
           return Sizer(builder: (BuildContext context, Orientation orientation, DeviceType deviceType) {
-
             return         MaterialApp(
+              navigatorKey: TopVaraible.navigatorKey,
               title: 'Flutter Demo',
               themeMode: themeChanger.themeMode,
               debugShowCheckedModeBanner: false,
