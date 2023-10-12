@@ -3,18 +3,24 @@ const express = require('express');
 const router=express.Router();
 const Note=require('./../models/Notes');
 
-router.get('/list',async function (req,res)  {
+
+
+router.get('/alllist',async function (req,res)  {
+  console.log("Node js List api ");
 
     const notes=await Note.find();
     // res.json(notes);
-    const response={message:"User has been Created",error:"0",data:notes};
+    const response={message:"list of notes",error:"0",data:notes};
     res.json(response);
 
     });
 
     router.post('/add',async function (req,res)  {
-    
+       
+      // res.setHeader('Content-Type', 'application/json');
+
          try{
+          
             if(res.statusCode == 200){
                 const newNote=new Note({
                     id:req.body.id ,
@@ -22,11 +28,13 @@ router.get('/list',async function (req,res)  {
                     title:req.body.title,
                     content:req.body.content,
                 });
-         
+
               await newNote.save();    
+          
               const response={message:"User has been Created",error:"0"};
+              // res.send(response);
               res.json(response);
-              console.log("Error is",res);
+              // console.log("Error is",res);
     
             }
             else{
@@ -54,17 +62,16 @@ router.get('/list',async function (req,res)  {
  
         });
 
-        
-        router.get('/list', async function (req,res)  {
-
+        router.post('/list', async function (req,res)  {
+          console.log("Single note ",req.body);
             const notes=await Note.find({userid:req.body.userid});
-            res.json(notes);
-
-
+            const response={message:"Fetching Notes",error:"0",data:notes};
+            res.json(response);
+        
              });
 
-
              router.post('/delete',async function (req,res)  {
+              console.log("Delete api response is",req.body);
  
                  const delNotes=await Note.deleteOne(
                     {

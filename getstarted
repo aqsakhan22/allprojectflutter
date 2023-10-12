@@ -42,3 +42,17 @@ https://techmuzz.com/how-to/deploy-expressjs-api-on-netlify/
     "start": "node src/api.js",
     "dev": "nodemon src/api.js",
      "build":"npm i"
+
+if we want to access using ip
+http://192.168.7.105:3000/notes
+
+
+router.get('/list',async function (req,res)  {
+  console.log("Node js List api ");
+
+    const notes=await Note.find();
+    // res.json(notes);
+    const response={message:"list of notes",error:"0",data:notes};
+    res.json(response);
+
+    });
