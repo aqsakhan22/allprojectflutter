@@ -53,11 +53,13 @@ class _AddNoteState extends State<AddNote> {
          print("update is");
          widget.note!.title=title.text;
          widget.note!.content=content.text;
+         widget.note!.dataAdded=DateTime.now();
          Provider.of<NotesProvider>(context,listen: false).updateNote(widget.note!);
          Navigator.pop(context);
        }
        else{
          addNewNote();
+         Navigator.pop(context);
        }
 
         }, icon: Icon(Icons.save))],

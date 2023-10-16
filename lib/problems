@@ -29,5 +29,9 @@ https://github.com/facebook/react-native/issues/35215
 keytool -genkey -v -keystore ~/runwith.jks -keyalg RSA -keysize 2048 -validity 10000 -alias runwith
 flutter build ios --no-tree-shake-icons
 
+App publishing
+https://medium.flutterdevs.com/publishing-flutter-app-to-playstore-fa7543b61a7b
+https://medium.com/@bernes.dev/deploying-flutter-apps-to-the-playstore-1bd0cce0d15c
+
 
 

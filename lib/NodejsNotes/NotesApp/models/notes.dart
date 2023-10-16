@@ -1,4 +1,5 @@
 class Notes{
+
   String? id;
   String? userid;
   String? title;
@@ -9,6 +10,7 @@ class Notes{
 
   factory Notes.fromMap(Map<String,dynamic> map){
     return Notes(
+
       id: map['id'],
       userid: map['userid'],
       title: map['title'],
