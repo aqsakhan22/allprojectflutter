@@ -67,7 +67,6 @@ router.get('/alllist',async function (req,res)  {
             const notes=await Note.find({userid:req.body.userid});
             const response={message:"Fetching Notes",error:"0",data:notes};
             res.json(response);
-        
              });
 
              router.post('/delete',async function (req,res)  {
@@ -93,5 +92,36 @@ router.get('/alllist',async function (req,res)  {
 
         });
 
+        router.post('/update',async function (req,res)  {
+          console.log("update api response is",req.body.userid,req.body.title,req.body.content);
+
+          const filter = {  userid:req.body.userid };
+   
+    /* Set the upsert option to insert a document if no documents match
+    the filter */
+    const options = { upsert: true };
+    // Specify the update to set a value for the plot field
+    const updateDoc = {
+      $set: {
+        title:req.body.title,
+        content:req.body.content,
+      },
+    };
+    const result = await Note.updateOne(filter, updateDoc, options);
+              const response={message:"User has been Updated",error:"0"};
+          res.json(response);
+
+
+
+
+ 
+
+//    res.json(req.body);
+
+
+    });
+
+
+        
 
 module.exports=router;
