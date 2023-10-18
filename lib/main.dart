@@ -2,6 +2,7 @@ import 'package:firebaseflutterproject/Design_Pattern/mvvm/viewmodel/userViewMod
 import 'package:firebaseflutterproject/NodejsNotes/NotesApp/AllNotes.dart';
 import 'package:firebaseflutterproject/NodejsNotes/NotesApp/notesProvider.dart';
 import 'package:firebaseflutterproject/TopVariables.dart';
+import 'package:firebaseflutterproject/animations/animationsEx.dart';
 
 import 'package:firebaseflutterproject/bflow/my_view_model.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/count_provider.dart';
@@ -96,7 +97,7 @@ class MyApp extends StatelessWidget {
                     // color: Colors.blue,
                       backgroundColor: Colors.blue)),
               // home: LoginScreen(),
-              home: GetNotes(),
+              home: AnimationsExample(),
               // initialRoute: RoutesName.login,
               // onGenerateRoute: Routes.generateRoute,
             );

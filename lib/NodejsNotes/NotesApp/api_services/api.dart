@@ -92,11 +92,14 @@ class ApiServices{
     Uri requestedUrl=Uri.parse(baseUrl+"/list");
     var response= await  http.post(
         requestedUrl,
+        headers: {
+          'Authorization':'Basic abcednh'
+        },
         body: {"userid":userid});
     print("Response body is ${response.body}");
      var decoded = jsonDecode(response.body);
      List<Notes> notes=[];
-     for(var noteMap in decoded['data'] ){
+     for(var noteMap in decoded['data']){
      Notes newnote=  Notes.fromMap(noteMap);
      notes.add(newnote);
 

@@ -86,7 +86,7 @@ dev_dependencies:
   flutter_svg:
   share_plus: ^7.0.0
   fl_chart: ^0.62.0
-
+  animations: ^2.0.8
 
 #  app_settings: ^4.2.0
 
