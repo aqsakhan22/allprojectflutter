@@ -8,6 +8,9 @@ const Note=require('./../models/Notes');
 router.get('/alllist',async function (req,res)  {
   console.log("Node js List api ");
 
+  //  res.setHeader('Access-Control-Allow-Origin', '*');
+  // res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+  // res.setHeader('Content-Type', 'text/plain');
     const notes=await Note.find();
     // res.json(notes);
     const response={message:"list of notes",error:"0",data:notes};
