@@ -5,26 +5,30 @@ import 'package:firebaseflutterproject/TopVariables.dart';
 import 'package:firebaseflutterproject/animations/animationsEx.dart';
 
 import 'package:firebaseflutterproject/bflow/my_view_model.dart';
+import 'package:firebaseflutterproject/firebase_options.dart';
+import 'package:firebaseflutterproject/firebase_services/fcm_controller.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/count_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/example_one.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/favourite_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/theme_provider.dart';
+import 'package:firebaseflutterproject/user_intefaces/notification_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // debugDefaultTargetPlatformOverride = TargetPlatform.android;
-  //  NotificationService().initNotification();
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
-  //
-  //
-  // await listenToFCM();
+   // debugDefaultTargetPlatformOverride = TargetPlatform.android;
+  NotificationService().initNotification();
+  await Firebase.initializeApp(
+    name: 'Notes',
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await listenToFCM();
   await askPermission();
+
   // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
   //   //initialize socket
   //   SoccketIntegration().initSocket();
@@ -97,7 +101,7 @@ class MyApp extends StatelessWidget {
                     // color: Colors.blue,
                       backgroundColor: Colors.blue)),
               // home: LoginScreen(),
-              home: AnimationsExample(),
+              home: GetNotes(),
               // initialRoute: RoutesName.login,
               // onGenerateRoute: Routes.generateRoute,
             );
