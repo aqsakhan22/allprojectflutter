@@ -1,0 +1,11 @@
+
+step1
+ keytool -genkey -v -keystore my-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-key-alias
+step 2
+add my-key.jks in android app level
+step 3
+https://medium.com/@psyanite/how-to-sign-and-release-your-flutter-app-ed5e9531c2ac
+
+to save git bucket key again we using
+ ssh-add /Users/bmacapital/Desktop/Development/bmacapitalssh
+
