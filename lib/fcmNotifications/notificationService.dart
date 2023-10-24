@@ -5,6 +5,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 
 // Fcm Notification service with image
+//https://stackoverflow.com/questions/71053724/flutter-local-notifications-plugin-not-showing-the-big-image-in-notification
 
 class FcmNotificationService {
   final FlutterLocalNotificationsPlugin notificationsPlugin = FlutterLocalNotificationsPlugin();
