@@ -53,5 +53,16 @@ https://stackoverflow.com/questions/54746271/flutter-firebase-project-wont-compi
 https://blog.codemagic.io/flutter-local-notifications/
 https://blog.codemagic.io/flutter-local-notifications/
 
-// firebase notification
+// firebase notification for IOS
 https://medium.com/@m1nori/ios-setup-of-push-notifications-flutter-firebase-775b0430140e
+https://medium.com/@01egme/the-simplest-way-to-configure-firebase-apn-for-ios-4ed5e6e14539#:~:text=In%20Certificates%2C%20Identifiers%20%26%20Profiles%2C,APN)%2C%20then%20click%20Continue.
+https://firebase.flutter.dev/docs/messaging/apple-integration/
+https://firebase.flutter.dev/docs/messaging/usage
+
+// Firebase crahslytics issue in IOS
+https://stackoverflow.com/questions/72069266/firebase-crashlytics-setup-for-flutter-on-flutter-ios
+
+// publish ios and android app
+https://www.instabug.com/blog/how-to-release-your-flutter-app-for-ios-and-android
+
+
