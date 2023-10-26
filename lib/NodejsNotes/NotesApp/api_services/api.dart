@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:firebaseflutterproject/NodejsNotes/NotesApp/models/notes.dart';
 import 'package:http/http.dart' as http;
 class ApiServices{
-  static const baseUrl="http://192.168.7.105:3000/notes";
+  static const baseUrl="http://192.168.7.107:3000/notes";
   static Future<Map<String,dynamic>> addNoteApi(Notes note) async{
    try{
 
@@ -92,9 +92,9 @@ class ApiServices{
     Uri requestedUrl=Uri.parse(baseUrl+"/list");
     var response= await  http.post(
         requestedUrl,
-        headers: {
-          'Authorization':'Basic abcednh'
-        },
+        // headers: {
+        //   'Authorization':'Basic abcednh'
+        // },
         body: {"userid":userid});
     print("Response body is ${response.body}");
      var decoded = jsonDecode(response.body);

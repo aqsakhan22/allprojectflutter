@@ -63,7 +63,7 @@ dev_dependencies:
   audioplayers: ^0.19.0
   http: ^0.13.6
   another_flushbar: ^1.12.30
-  alan_voice: ^4.1.2
+#  alan_voice: ^4.1.2
   speech_to_text: ^6.1.1
   highlight_text: ^1.6.0
   avatar_glow: ^2.0.2
