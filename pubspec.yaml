@@ -87,6 +87,7 @@ dev_dependencies:
   share_plus: ^7.0.0
   fl_chart: ^0.62.0
   animations: ^2.0.8
+  firebase_crashlytics: ^3.3.2
 
 #  app_settings: ^4.2.0
 
