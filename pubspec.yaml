@@ -18,6 +18,14 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # of the product and file versions while build-number is used as the build suffix.
 #              for ios build
 #              /Users/novusaltairuser07/Desktop/AndriodProjects/flutter_3.7.11/bin/flutter build ios --no-tree-shake-icons
+
+#  flutter build apk --release
+# flutter build apk --release --verbose --obfuscate --split-debug-info=novus-guard-solo-flutter/symbols
+# flutter build apk --release --no-tree-shake-icons
+# flutter build apk --release --no-tree-shake-icons --verbose --obfuscate --split-debug-info=novus-guard-pro-flutter/symbols
+# flutter build appbundle --release --no-tree-shake-icons --verbose --obfuscate --split-debug-info=novus-guard-pro-flutter/symbols
+
+
 version: 1.0.0+1
 
 environment:
