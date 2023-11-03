@@ -22,7 +22,9 @@ class _DarkThemeState extends State<DarkTheme> {
           RadioListTile<ThemeMode>(title: Text("Light Mode"), value: ThemeMode.light, groupValue: themeChanger.themeMode, onChanged: themeChanger.setTheme),
           RadioListTile<ThemeMode>(title: Text("DARK Mode"), value: ThemeMode.dark, groupValue: themeChanger.themeMode, onChanged: themeChanger.setTheme),
           RadioListTile<ThemeMode>(title: Text("System Mode"), value: ThemeMode.system, groupValue: themeChanger.themeMode, onChanged: themeChanger.setTheme),
-          ElevatedButton(onPressed: () {}, child: Text("${themeChanger.themeMode}")),
+          ElevatedButton(onPressed: () {
+
+          }, child: Text("${themeChanger.themeMode}")),
           Icon(Icons.add)
         ],
       ),

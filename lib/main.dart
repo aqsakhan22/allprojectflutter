@@ -1,4 +1,7 @@
 import 'package:firebaseflutterproject/Design_Pattern/mvvm/viewmodel/userViewModel.dart';
+import 'package:firebaseflutterproject/MVVM/ViewModel/auth_repo_VM.dart';
+import 'package:firebaseflutterproject/MVVM/providers/auth_provider.dart';
+import 'package:firebaseflutterproject/MVVM/view/login_screen.dart';
 import 'package:firebaseflutterproject/NodejsNotes/NotesApp/AllNotes.dart';
 import 'package:firebaseflutterproject/NodejsNotes/NotesApp/notesProvider.dart';
 import 'package:firebaseflutterproject/TopVariables.dart';
@@ -11,6 +14,7 @@ import 'package:firebaseflutterproject/stateManagement/provider/count_provider.d
 import 'package:firebaseflutterproject/stateManagement/provider/example_one.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/favourite_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/theme_provider.dart';
+import 'package:firebaseflutterproject/user_intefaces/dart_theme.dart';
 import 'package:firebaseflutterproject/user_intefaces/notification_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -79,6 +83,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => UserViewModel()),
         ChangeNotifierProvider(create: (_) => MyViewModel()),
         ChangeNotifierProvider(create: (_) => NotesProvider()),
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider(create: (_) => AuthViewModel()),
 
       ],
       child: Builder(
@@ -86,7 +92,7 @@ class MyApp extends StatelessWidget {
           final themeChanger = Provider.of<ThemeProvider>(context);
 
           return Sizer(builder: (BuildContext context, Orientation orientation, DeviceType deviceType) {
-            return         MaterialApp(
+            return MaterialApp(
               navigatorKey: TopVaraible.navigatorKey,
               title: 'Flutter Demo',
               themeMode: themeChanger.themeMode,
@@ -98,10 +104,12 @@ class MyApp extends StatelessWidget {
                   primaryColor: Colors.red,
                   iconTheme: IconThemeData(color: Colors.red),
                   appBarTheme: AppBarTheme(
-                    // color: Colors.blue,
-                      backgroundColor: Colors.blue)),
+                   // foregroundColor: Colors.orange, will change  color of app title
+                   //   elevation: 30.0,
+                      backgroundColor: themeChanger.themeMode == ThemeMode.light ?  Colors.blue : Colors.cyan
+                  )),
               // home: LoginScreen(),
-              home: GetNotes(),
+              home: LoginScreen(),
               // initialRoute: RoutesName.login,
               // onGenerateRoute: Routes.generateRoute,
             );
