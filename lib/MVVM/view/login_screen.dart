@@ -4,7 +4,7 @@ import 'package:firebaseflutterproject/MVVM/res/components/round_buttons.dart';
 import 'package:firebaseflutterproject/MVVM/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:in_app_update/in_app_update.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -19,11 +19,25 @@ class _LoginScreenState extends State<LoginScreen> {
   FocusNode emailFocusNode = FocusNode();
   FocusNode passwordFocusNode = FocusNode();
   ValueNotifier<bool> obsecurePassword = ValueNotifier(true);
+  AppUpdateInfo? _updateInfo;
+  bool _flexibleUpdateAvailable = false;
+  Future<void> checkForUpdate() async {
+    InAppUpdate.checkForUpdate().then((info) {
+      print("update info is ${info}");
+      setState(() {
+        _updateInfo = info;
+      });
+    }).catchError((e) {
+      print("error is ${e}");
+   Utils.toastMessage(e.toString());
+    });
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
     final authProvider= Provider.of<AuthViewModel>(context,listen: false);
-    print("Login Build");
     final height = MediaQuery.of(context).size.height * 1;
     return Scaffold(
         appBar: AppBar(
@@ -82,7 +96,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 authProvider.loginApi(reqBody,context);
                 },
 
-              )
+              ),
+
+              RoundButton(title: "Updates check", onPressed: (){
+                checkForUpdate();
+
+              }),
 
 
 

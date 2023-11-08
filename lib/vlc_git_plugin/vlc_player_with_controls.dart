@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -54,6 +55,7 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls> with Autom
 
   @override
   bool get wantKeepAlive => true;
+  bool isLandscape=false;
 
   @override
   void initState() {
@@ -327,6 +329,7 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls> with Autom
                   color: Colors.white,
                   icon: _controller.value.isPlaying ? Icon(Icons.pause_circle_outline) : Icon(Icons.play_circle_outline),
                   onPressed: _togglePlaying,
+                  iconSize: 12,
                 ),
                 Expanded(
                   child: Row(
@@ -355,9 +358,24 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls> with Autom
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.fullscreen),
+                  icon:
+
+                  Icon(Icons.fullscreen),
                   color: Colors.white,
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      isLandscape=!isLandscape;
+                    });
+                    if(isLandscape == true){
+                      SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);
+                    }
+                    else{
+                      SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown,DeviceOrientation.portraitUp]);
+
+                    }
+
+
+                  },
                 ),
               ],
             ),
