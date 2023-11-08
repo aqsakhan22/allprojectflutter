@@ -371,8 +371,6 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls> with Autom
                       SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown,DeviceOrientation.portraitUp]);
 
                     }
-
-
                   },
                 ),
               ],
