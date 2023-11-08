@@ -358,9 +358,7 @@ class VlcPlayerWithControlsState extends State<VlcPlayerWithControls> with Autom
                   ),
                 ),
                 IconButton(
-                  icon:
-
-                  Icon(Icons.fullscreen),
+                  icon: Icon(Icons.fullscreen),
                   color: Colors.white,
                   onPressed: () {
                     setState(() {
