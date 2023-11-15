@@ -53,28 +53,28 @@ db.connect("mongodb+srv://aqsakhan19966:aqsakhan1234@cluster0.dfgssqj.mongodb.ne
 //    });
 
 
-   app.get('/login',function (req,res){
-    console.log('login api hits');
-         const user={id:1,name:'aqsa khan'};
-      const token=jwt.sign({user},'secret_key');
-      console.log('token is',token);
-      res.json({'token':token})
-     });
+//    app.get('/login',function (req,res){
+//     console.log('login api hits');
+//          const user={id:1,name:'aqsa khan'};
+//       const token=jwt.sign({user},'secret_key');
+//       console.log('token is',token);
+//       res.json({'token':token})
+//      });
 
-     app.get('/protected',function (req,res){
-        console.log('protected',);
-            jwt.verify(req.headers.authorization,'secret_key',function(err,data){
-                if(err){
-                  res.sendStatus(403);
-                }
-                else{
-                    res.json({
-                        text:'this is a protected',
-                        data:data
-                    });
-                }
-            });
-         });
+//      app.get('/protected',function (req,res){
+//         console.log('protected',);
+//             jwt.verify(req.headers.authorization,'secret_key',function(err,data){
+//                 if(err){
+//                   res.sendStatus(403);
+//                 }
+//                 else{
+//                     res.json({
+//                         text:'this is a protected',
+//                         data:data
+//                     });
+//                 }
+//             });
+//          });
     
    const notesRouter=require('./routes/Routes');
 //    app.use('/notes',notesRouter); // example /notes/list 

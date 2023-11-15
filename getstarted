@@ -24,6 +24,7 @@ git config --list
  git branch
  git checkout -b NotesAppServer
  git push origin -u NotesAppServer
+ git push -f origin socketexample      
 
 
  sample vide for removing git access in maos
