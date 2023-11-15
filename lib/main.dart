@@ -10,6 +10,7 @@ import 'package:firebaseflutterproject/animations/animationsEx.dart';
 import 'package:firebaseflutterproject/bflow/my_view_model.dart';
 import 'package:firebaseflutterproject/firebase_options.dart';
 import 'package:firebaseflutterproject/firebase_services/fcm_controller.dart';
+import 'package:firebaseflutterproject/socketIntegration/socketEx.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/count_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/example_one.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/favourite_provider.dart';
@@ -109,7 +110,7 @@ class MyApp extends StatelessWidget {
                       backgroundColor: themeChanger.themeMode == ThemeMode.light ?  Colors.blue : Colors.cyan
                   )),
               // home: LoginScreen(),
-              home: LoginScreen(),
+              home: SocketExample(),
               // initialRoute: RoutesName.login,
               // onGenerateRoute: Routes.generateRoute,
             );
