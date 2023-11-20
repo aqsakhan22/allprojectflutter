@@ -60,3 +60,4 @@ router.get('/list',async function (req,res)  {
 
 // node js with jwt token
 https://www.youtube.com/watch?v=xBYr9DxDqyU
+npm start
