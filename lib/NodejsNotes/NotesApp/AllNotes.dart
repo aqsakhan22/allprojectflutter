@@ -30,7 +30,8 @@ String searchQuery="";
       appBar: AppBar(
         title:const Text("All Notes"),
       ),
-      body: Consumer<NotesProvider>(
+      body:
+      Consumer<NotesProvider>(
 
         builder: (BuildContext context,getNotes,child){
           return
@@ -58,7 +59,6 @@ String searchQuery="";
                     setState(() {
                       searchQuery=value;
                     });
-
                     },
                   ),
                 ),
@@ -82,11 +82,10 @@ String searchQuery="";
 
                               )));
                         },
-                        child:   Container(
+                        child:  Container(
                           decoration: BoxDecoration(
                               color: Colors.redAccent,
                               borderRadius: BorderRadius.circular(10.0)
-
                           ),
                           margin: EdgeInsets.symmetric(vertical: 10.0,horizontal: 20.0),
                           child:Column(
@@ -111,7 +110,6 @@ String searchQuery="";
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 5,
                                 style: TextStyle(color: Colors.white, fontSize: 14,),),
-
                             ],
                           ),
                         ),

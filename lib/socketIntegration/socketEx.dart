@@ -38,6 +38,7 @@ class _SocketExampleState extends State<SocketExample> {
      socket.onConnectError((err) => print(err));
      socket.onError((err) => print(err));
    }
+
    sendMessage() {
      String message = messagecontroller.text.trim();
      if (message.isEmpty) return;

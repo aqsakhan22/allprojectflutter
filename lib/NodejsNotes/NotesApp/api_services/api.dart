@@ -2,7 +2,8 @@ import 'dart:convert';
 import 'package:firebaseflutterproject/NodejsNotes/NotesApp/models/notes.dart';
 import 'package:http/http.dart' as http;
 class ApiServices{
-  static const baseUrl="http://192.168.7.107:3000/notes";
+  //  //192.168.7.110:3000/notes
+  static const baseUrl="http://192.168.7.110:3000/notes";
   static Future<Map<String,dynamic>> addNoteApi(Notes note) async{
    try{
 
@@ -85,8 +86,8 @@ class ApiServices{
      return Future.value({'error':1,'status':e.toString()});
    }
 
-
   }
+
   static Future<List<Notes>> fetchNotes(String userid) async{
 
     Uri requestedUrl=Uri.parse(baseUrl+"/list");

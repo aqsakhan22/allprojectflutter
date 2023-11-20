@@ -44,7 +44,9 @@ void sortNotes(){
 }
 
 void fetchNotes() async{
+  print("Fetch Notes is");
   notes= await ApiServices.fetchNotes("aqsakhan");
+  print("avaialble notes is ${notes}");
   isLoading=false;
   sortNotes();
   notifyListeners();

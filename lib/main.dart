@@ -22,6 +22,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebaseflutterproject/streamexample/streamexample.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -86,12 +87,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => NotesProvider()),
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => AuthViewModel()),
-
       ],
       child: Builder(
         builder: (BuildContext context) {
           final themeChanger = Provider.of<ThemeProvider>(context);
-
           return Sizer(builder: (BuildContext context, Orientation orientation, DeviceType deviceType) {
             return MaterialApp(
               navigatorKey: TopVaraible.navigatorKey,
@@ -110,7 +109,7 @@ class MyApp extends StatelessWidget {
                       backgroundColor: themeChanger.themeMode == ThemeMode.light ?  Colors.blue : Colors.cyan
                   )),
               // home: LoginScreen(),
-              home: SocketExample(),
+              home: StreamExample(),
               // initialRoute: RoutesName.login,
               // onGenerateRoute: Routes.generateRoute,
             );
