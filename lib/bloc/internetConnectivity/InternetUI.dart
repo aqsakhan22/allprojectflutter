@@ -12,37 +12,33 @@ class InternetUI extends StatelessWidget {
       // bloc receiving event and emit state
       // builder UI banany k loye kam ata hai
       // listener If we want to do some background task
-      body: BlocProvider(
-        create: (context) => InternetBloc(),
-        child:    Center(
-          child:
-          BlocConsumer<InternetBloc,InternetState>(
-            listener: (context,state){
-              if(state is InternetGainedState){
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Connected")));
-              }
-              else if(state is InternetLostState){
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Not Connected")));
-              }
+      body:      Center(
+        child:
+        BlocConsumer<InternetBloc,InternetState>(
+          listener: (context,state){
+            if(state is InternetGainedState){
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Connected")));
+            }
+            else if(state is InternetLostState){
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Not Connected")));
+            }
 
-            },
-            builder: (context,state){
-              if(state is InternetGainedState){
-                return Text("Connected");
-              }
-              else if(state is InternetLostState){
-                return Text("Not Connected");
-              }
-              else{
-                return Text("Loading");
+          },
+          builder: (context,state){
+            if(state is InternetGainedState){
+              return Text("Connected");
+            }
+            else if(state is InternetLostState){
+              return Text("Not Connected");
+            }
+            else{
+              return Text("Loading");
 
-              }
+            }
 
-            },
+          },
 
-          ),
         ),
-
       )
 
       // BlocBuilder<InternetBloc,InternetState>(

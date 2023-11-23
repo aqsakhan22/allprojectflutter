@@ -23,7 +23,6 @@ class InternetBloc extends Bloc<InternetEvent,InternetState>{
 
     });
 
-
   }
 
 
