@@ -3,6 +3,7 @@ import 'package:firebaseflutterproject/MVVM/ViewModel/auth_repo_VM.dart';
 import 'package:firebaseflutterproject/MVVM/providers/auth_provider.dart';
 import 'package:firebaseflutterproject/MVVM/view/login_screen.dart';
 import 'package:firebaseflutterproject/NodejsNotes/NotesApp/AllNotes.dart';
+import 'package:firebaseflutterproject/NodejsNotes/NotesApp/addNote.dart';
 import 'package:firebaseflutterproject/NodejsNotes/NotesApp/notesProvider.dart';
 import 'package:firebaseflutterproject/TopVariables.dart';
 import 'package:firebaseflutterproject/animations/animationsEx.dart';
@@ -24,7 +25,9 @@ import 'package:sizer/sizer.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebaseflutterproject/streamexample/streamexample.dart';
 import 'package:firebaseflutterproject/streamexample/counterStream/counterView.dart';
-import 'package:firebaseflutterproject/stateManagement/blocProvider/counterBlocUi.dart';
+
+import 'examples/piechartEx.dart';
+// import 'package:firebaseflutterproject/stateManagement/blocProvider/counterBlocUi.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -111,7 +114,7 @@ class MyApp extends StatelessWidget {
                       backgroundColor: themeChanger.themeMode == ThemeMode.light ?  Colors.blue : Colors.cyan
                   )),
               // home: LoginScreen(),
-              home: CounterBlocUI(),
+              home: PieChartSample3(),
               // initialRoute: RoutesName.login,
               // onGenerateRoute: Routes.generateRoute,
             );

@@ -38,9 +38,6 @@ class _AddNoteState extends State<AddNote> {
     );
     Provider.of<NotesProvider>(context,listen: false).addNote(newNote);
     Provider.of<NotesProvider>(context,listen: false).notifyListeners();
-
-
-
   }
   @override
   Widget build(BuildContext context) {

@@ -70,6 +70,20 @@ https://stackoverflow.com/questions/62568757/playstore-error-app-bundle-contains
 https://www.youtube.com/watch?v=x2q-OiPkUmo
 https://stackoverflow.com/questions/76621039/flutter-the-native-debug-symbols-contain-an-invalid-directory-macosx-when-up
 
+bmacapital@BMAs-MacBook-Air ~ % zip -d /Users/bmacapital/Desktop/Development/Archive.zip __MACOSX*
+zsh: no matches found: __MACOSX*
+bmacapital@BMAs-MacBook-Air ~ % zip -d /Users/bmacapital/Desktop/Development/Archive.zip "__MACOSX*"
+deleting: __MACOSX/._arm64-v8a
+deleting: __MACOSX/arm64-v8a/._libflutter.so
+deleting: __MACOSX/arm64-v8a/._libapp.so
+deleting: __MACOSX/._armeabi-v7a
+deleting: __MACOSX/armeabi-v7a/._libflutter.so
+deleting: __MACOSX/armeabi-v7a/._libapp.so
+deleting: __MACOSX/._x86_64
+deleting: __MACOSX/x86_64/._libflutter.so
+deleting: __MACOSX/x86_64/._libapp.so
+
+
 
 
 
