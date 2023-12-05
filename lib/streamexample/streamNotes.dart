@@ -3,11 +3,12 @@ import 'package:firebaseflutterproject/NodejsNotes/NotesApp/api_services/api.dar
 import 'dart:async';
 
 class StreamNotes {
+
   final _streamController = StreamController<String>();
   StreamSink<String> get _streamSink => _streamController.sink;
   // sink accepts both synchronous and asynchronous we can add data
   Stream<String> get streamData => _streamController.stream; //  get the stream data
-  Stream<List<Notes>> get getNotes => _currentEntries;
+
 
   StreamNotes(){
     fetchNotes();
