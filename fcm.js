@@ -1,17 +1,39 @@
 const FCM= require("fcm-node");
 const fcm=new FCM("AAAAfwD7Tcs:APA91bEjd4LfY5nzfQhx9kc31IelY8iCDzfhUfvrD9YgPcNd0FQJUCG7xe2te_pC3MDt9dPtYrnUWZalx45AN8IDlnIyxbPUNiJEiXrJ7L3snl28Mjw9ocev3WN_zJGPRTQjCID9Ntxh");
+const android="eyM5iaNQSQqoGtzWC1iGLM:APA91bEYgW5dBp8lqgAq__83YdPrqEIX1jo2vcz2EopbZhOG5tzoxBk7S0O6Zy2NvR91SrD0-ejEkHwDWnKzW1QB2zQQz-b_1tAlSslZBbMuE5mnDE7Zr7_qx9JKSjB8PkSvUbGsiv_B";
+const ios="dxga98d3dUwUufrnRp8Nm_:APA91bHuA2yCVuHxZtmCxJx3u7cs4tksDTGwNqhNebvBeR2Bgy-sinZ116FrBtydmsC9trJbf15zTf4EqJ7N9f16lZfYzrTYDbOwKZJsubKpRdVxoNKym9lwdkPOFfJyDfGUrSMjnHxo";
+const myPhone="f_dGTikRSYiTX87l9d8OAG:APA91bE9rp4wKuX2o0sWTRemt3IKybkGgHhIbOY-HPaQxSOugT204v670fzKOfp3Sc4M4bKZCqgaxzr-ClWpyILh7FaAJVk8zEmi21hs3ateSw3raDyFjHi9xlcjYObFM3E80wvG0S3u";
+
+
 const message={
-    
     notification:{
-        title:"Hello world",
-        body:"Notification body"
+        title:"notification title",
+        body:"notification body ",
     },
-    to:"fnTWPCaFTNuY01tZTXItgN:APA91bG1URgDZcNX7ZKW3u8Ij1rlFyr5gvc3M1asJ9c358fw1v6lI5LmzRadHVlDIHs_0R6pFNQJIkdkDFKM8F7gS0sTKuLdmdZhwf4r5eQaqkHQvtGIlotAvVZLqLhKCgMH_7h-sNtD"
+    data:{
+        report_id:'260793',
+        title:"data title ",
+        body:"data body ",
+    }
+     ,    
+    apns:{
+        payload:{
+            aps:{
+             "mutable-content":"1"
+            }
+        }
+    },
+    android: {
+        "priority": "high"
+    },
+    to:android
 };
-
-
-//fdA3mICLoUjllwYlxICGJt:APA91bECGQm9vxmIywIqef9F3y1IuqIkT1S4xGEZh0V3OmPHLrAp9GQt1wyGpiEqPMZU5-lhau6bUm_VZTDd6yuJImxwwI2ucFvenI9mWGJXaV0e9aAI_WrhCR2Cp-Rj6J7JsHgOgfB7
+// ANDROID
+// cWF71ZNDTyS2Kwj58RRxwa:APA91bFBTDl0ukCP0uzx2LGkrmJYPc5gAA2H_sS-74GS--QLfjMpWQ3cpbgVA_5hClVq2aigzIXQ_0CXPNhu0UlAKFA6jbnldGHLtvKWka4BdIMBibsc-Ilg0yZGUo_0FerraIhi8zJE
+// ios
+// eZQBMdCl1kIttIJhZtO1ra:APA91bHAt1noebWXv_7ukk0e1rRX0IVQkp-kWAQkdMY8IwQUZCtUjxVqYh4Gd584Y4Cw6tCHdi7sinLGzSBXpj6j5F0JL9m7QTD_Dr8COa03i1zeYKqMGOVdMsGZH-Svtz4ARZKUt-1m
 fcm.send(message,function(err,response){
+    
     if(err){
         console.log("Error in FCM",err);
     }
