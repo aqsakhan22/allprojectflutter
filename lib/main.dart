@@ -5,9 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:notificationflutter/router.dart';
 import 'package:notificationflutter/utility/topVariable.dart';
 import 'package:permission_handler/permission_handler.dart';
-
-//
-
+// https://firebase.flutter.dev/docs/messaging/notifications/
+// f_dGTikRSYiTX87l9d8OAG:APA91bE9rp4wKuX2o0sWTRemt3IKybkGgHhIbOY-HPaQxSOugT204v670fzKOfp3Sc4M4bKZCqgaxzr-ClWpyILh7FaAJVk8zEmi21hs3ateSw3raDyFjHi9xlcjYObFM3E80wvG0S3u
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,8 +43,6 @@ void main() async {
       )
   );
 }
-
-
 
 askPermission() async {
 
