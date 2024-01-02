@@ -40,4 +40,7 @@ https://fluttergems.dev/grid/
 // Design Pattern
 https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/
 
-
+// fcm issue
+// https://firebase.google.com/docs/cloud-messaging/concept-options
+https://firebase.google.com/docs/cloud-messaging/migrate-v1
+https://firebase.google.com/docs/cloud-messaging/send-message
