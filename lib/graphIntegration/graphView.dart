@@ -54,8 +54,9 @@ class _GraphViewState extends State<GraphView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.blue,
         title: Text("Graph Integation"),
       ),
       body: Consumer<GraphProvider>(
@@ -65,18 +66,27 @@ class _GraphViewState extends State<GraphView> {
              future: data.getAsyncGraph,
              builder: (BuildContext context, AsyncSnapshot<Graph> snapshot) {
            if(snapshot.hasData){
-             return const Column(
+             return  Column(
                children: [
                  SizedBox(height: 10.0,),
                   GraphCategories(),
              SizedBox(height: 10.0,),
-             Expanded(flex: 4, child:  GraphExample())
-                 // CartesianGraph(
-                 //   graph: snapshot.data,
-                 //   period: data.getPeriod,
-                 //   tooltipBehavior: _tooltipBehavior,
-                 // ),
-               ],
+
+           Expanded(child:       CartesianGraph(
+             graph: snapshot.data,
+             period: data.getPeriod,
+             tooltipBehavior: _tooltipBehavior,
+           ))
+
+
+             // Expanded(flex: 4, child:
+             //
+             // // GraphExample())
+             //
+             //   )
+
+
+               ]
              );
            }
            else if (snapshot.hasError) {
@@ -130,12 +140,13 @@ class GraphCategories extends StatelessWidget {
                       graphProvider.callApi();
                     },
                     child: Container(
-                      height: 3.h,
+                      height: 10.h,
                       width: 15.w,
+
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         color: (index == graphProvider.getCurrentIndex)
-                            ? Colors.transparent
+                            ? Colors.blue
                             : Colors.white,
                         border: Border.all(
                           color: (index == graphProvider.getCurrentIndex)
@@ -148,7 +159,7 @@ class GraphCategories extends StatelessWidget {
                           graphProvider.getTitles[index],
                           style: TextStyle(  color: (index == graphProvider.getCurrentIndex)
                               ? Colors.white
-                              : Colors.red,)
+                              : Colors.blue,)
 
                           ,
                         ),
@@ -176,10 +187,10 @@ class CartesianGraph extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // dateTime format is 2023-03-13 14:54:53.000
-print("period is  ${period}");
+// print("period is  ${period}");
     return
       SfCartesianChart(
-        tooltipBehavior: tooltipBehavior,
+        // tooltipBehavior: tooltipBehavior,
         // for zooming purpose and scrollable
         zoomPanBehavior: ZoomPanBehavior(
            enablePanning: true,
@@ -188,24 +199,24 @@ print("period is  ${period}");
           // enableMouseWheelZooming: true
         ),
         primaryXAxis: DateTimeAxis(
-            // dateFormat:
-            // (period == 'daily') ?
-            //
-            // DateFormat('hh aa')
-            //     :
-            // DateFormat('yyyy'),
+            dateFormat:
+            (period == 'daily') ?
+
+            DateFormat('hh aa')
+                :
+            DateFormat('yyyy'),
             // intervalType: (period == 'daily')
             //   ? DateTimeIntervalType.hours
             //   : DateTimeIntervalType.years,
-            labelStyle: TextStyle(color: Colors.white)),
+            labelStyle: TextStyle(color: Colors.blue)),
         primaryYAxis: NumericAxis(
-            edgeLabelPlacement: EdgeLabelPlacement.shift,
-            labelStyle: TextStyle(color: Colors.white)
+            //edgeLabelPlacement: EdgeLabelPlacement.shift,
+            labelStyle: TextStyle(color: Colors.blue)
         ),
         //  tooltipBehavior: tooltipBehavior,
         series: [
           LineSeries<GraphData, DateTime>( // (X , Y) (GraphData,DateTime)
-            color: Colors.white, // graph color
+            color: Colors.blue, // graph color
             dataSource: graph!.graphData!,
             xValueMapper: (GraphData data, _) => data.datetime,
             yValueMapper: (GraphData data, _) => double.parse(data.price!.toStringAsFixed(2).toString()),
@@ -315,7 +326,7 @@ class GraphExample extends StatelessWidget {
                 )
               ]
 
-              
+
           ),
         ),
       ),
