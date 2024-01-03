@@ -12,6 +12,8 @@ import 'package:firebaseflutterproject/bflow/my_view_model.dart';
 import 'package:firebaseflutterproject/bottomsheetIssue.dart';
 import 'package:firebaseflutterproject/firebase_options.dart';
 import 'package:firebaseflutterproject/firebase_services/fcm_controller.dart';
+import 'package:firebaseflutterproject/graphIntegration/graphProvider.dart';
+import 'package:firebaseflutterproject/graphIntegration/graphView.dart';
 import 'package:firebaseflutterproject/socketIntegration/socketEx.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/count_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/example_one.dart';
@@ -93,6 +95,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => NotesProvider()),
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => AuthViewModel()),
+        ChangeNotifierProvider(create: (_) => GraphProvider()),
       ],
       child: Builder(
         builder: (BuildContext context) {
@@ -100,7 +103,7 @@ class MyApp extends StatelessWidget {
           return Sizer(builder: (BuildContext context, Orientation orientation, DeviceType deviceType) {
             return MaterialApp(
               navigatorKey: TopVaraible.navigatorKey,
-              title: 'Flutter Demo',
+              // title: 'Flutter Demo',
               themeMode: themeChanger.themeMode,
               debugShowCheckedModeBanner: false,
               theme: ThemeData(brightness: Brightness.light, primarySwatch: Colors.red, primaryColor: Colors.purple),
@@ -115,7 +118,7 @@ class MyApp extends StatelessWidget {
                       backgroundColor: themeChanger.themeMode == ThemeMode.light ?  Colors.blue : Colors.cyan
                   )),
               // home: LoginScreen(),
-              home: BottomSheetIssue()
+              home: GraphView()
 
               //PieChartSample3(),
               // initialRoute: RoutesName.login,
