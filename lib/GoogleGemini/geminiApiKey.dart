@@ -1,0 +1,1 @@
+String geminiApi="AIzaSyCcoaqXFk7HGfcCGUYg50R_iwRa3xGjCqM";

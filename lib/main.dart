@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:untitled/GoogleGemini/geminiApiKey.dart';
 import 'package:untitled/min_max_graph.dart';
 import 'package:untitled/scroll.dart';
 
 void main() {
+  Gemini.init(apiKey: geminiApi,enableDebugging: true);
   runApp(const MyApp());
 }
 
