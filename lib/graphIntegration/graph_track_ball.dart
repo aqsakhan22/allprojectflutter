@@ -144,7 +144,6 @@ class _GraphTrackBallerState extends State<GraphTrackBaller> {
     // }
     // );
     return
-
     Scaffold(
       appBar: AppBar(title: Text("graph"),),
       body:
@@ -232,7 +231,6 @@ class _GraphTrackBallerState extends State<GraphTrackBaller> {
               //   xValueMapper: (ChartData sales, _) => sales.month,
               //   yValueMapper: (ChartData sales, _) => sales.secondSale,
               // ),
-              
               LineSeries<ChartData, String>(
                 color: Colors.purple,
                 dataSource: data,
@@ -243,7 +241,6 @@ class _GraphTrackBallerState extends State<GraphTrackBaller> {
                 yValueMapper: (ChartData sales, _) => sales.thirdSale,
 
               ),
-
 
             ]
         ),

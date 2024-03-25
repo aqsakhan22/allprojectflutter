@@ -12,6 +12,7 @@ import 'package:firebaseflutterproject/bflow/my_view_model.dart';
 import 'package:firebaseflutterproject/bottomsheetIssue.dart';
 import 'package:firebaseflutterproject/firebase_options.dart';
 import 'package:firebaseflutterproject/firebase_services/fcm_controller.dart';
+import 'package:firebaseflutterproject/flutter_graph/dateTime_Graph.dart';
 import 'package:firebaseflutterproject/graphIntegration/graphProvider.dart';
 import 'package:firebaseflutterproject/graphIntegration/graphView.dart';
 import 'package:firebaseflutterproject/graphIntegration/graph_track_ball.dart';
@@ -120,7 +121,8 @@ class MyApp extends StatelessWidget {
                       backgroundColor: themeChanger.themeMode == ThemeMode.light ?  Colors.blue : Colors.cyan
                   )),
               // home: LoginScreen(),
-              home: GraphTrackBaller(),
+              home: DateTimeGraph()
+              //GraphTrackBaller(),
               //PieChartSample3(),
               // initialRoute: RoutesName.login,
               // onGenerateRoute: Routes.generateRoute,
