@@ -13,30 +13,54 @@ class GraphView extends StatefulWidget {
   State<GraphView> createState() => _GraphViewState();
 }
 class _GraphViewState extends State<GraphView> {
-  var _tooltipBehavior = TooltipBehavior();
+  // var _tooltipBehavior = TooltipBehavior();
+  late TrackballBehavior _trackballBehavior;
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
+
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+  //     final graphProvider = Provider.of<GraphProvider>(context, listen: false);
+  //     graphProvider.callApi();
+  //   });
+  //   _tooltipBehavior = graphToolTip();
+  // }
+
+
+  void initState(){
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       final graphProvider = Provider.of<GraphProvider>(context, listen: false);
       graphProvider.callApi();
     });
-    _tooltipBehavior = graphToolTip();
+    _trackballBehavior = TrackballBehavior(
+      activationMode: ActivationMode.singleTap, // you can shift to long press
+      lineColor:  Colors.green,
+      lineWidth: 2.0,
+      enable: true,
+      markerSettings: TrackballMarkerSettings(markerVisibility: TrackballVisibilityMode.visible),
+      // tooltipDisplayMode: TrackballDisplayMode.groupAllPoints
+    );
   }
+
   TooltipBehavior graphToolTip() {
     return
       TooltipBehavior(
-      enable: true,
-      color: Colors.white,
+         shouldAlwaysShow: true,
+         enable: true,
+         elevation: 0.0,
+        canShowMarker: false,
+        textAlignment: ChartAlignment.center,
+      // color: Colors.white,
+       color: Colors.white,
       duration: 6000,
       builder: (dynamic data, dynamic point, dynamic series, int pointIndex,
           int seriesIndex) {
         GraphData graphData = data;
-        final dateTime =
-        DateFormat('MMMM dd, yyyy hh:mm a').format(graphData.datetime!);
+        final dateTime = DateFormat('MMMM dd, yyyy hh:mm a').format(graphData.datetime!);
         final style = TextStyle(color: Colors.red);
-        return Padding(
+        return
+          Padding(
           padding: const EdgeInsets.all(4.0),
           child: Row(
             children: [
@@ -51,8 +75,10 @@ class _GraphViewState extends State<GraphView> {
       },
     );
   }
+
   @override
   Widget build(BuildContext context) {
+    print("graph view build");
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -70,15 +96,14 @@ class _GraphViewState extends State<GraphView> {
                children: [
                  SizedBox(height: 10.0,),
                   GraphCategories(),
-             SizedBox(height: 10.0,),
+                SizedBox(height: 10.0,),
 
-           Expanded(child:       CartesianGraph(
+           Expanded(
+               child:CartesianGraph(
              graph: snapshot.data,
              period: data.getPeriod,
-             tooltipBehavior: _tooltipBehavior,
+                 trackballBehavior: _trackballBehavior,
            ))
-
-
              // Expanded(flex: 4, child:
              //
              // // GraphExample())
@@ -177,25 +202,28 @@ class GraphCategories extends StatelessWidget {
 }
 class CartesianGraph extends StatelessWidget {
   const CartesianGraph(
-      {Key? key, this.graph, this.period, this.tooltipBehavior})
+      {Key? key, this.graph, this.period, required this.trackballBehavior})
       : super(key: key);
 
   final Graph? graph;
   final String? period;
-  final TooltipBehavior? tooltipBehavior;
+  // final TooltipBehavior? tooltipBehavior;
+  final TrackballBehavior trackballBehavior;
 
   @override
   Widget build(BuildContext context) {
     // dateTime format is 2023-03-13 14:54:53.000
 // print("period is  ${period}");
     return
+
       SfCartesianChart(
-        // tooltipBehavior: tooltipBehavior,
+          trackballBehavior: trackballBehavior,
+
         // for zooming purpose and scrollable
         zoomPanBehavior: ZoomPanBehavior(
-           enablePanning: true,
-          enablePinching: true,
-           enableDoubleTapZooming: true,
+          //  enablePanning: true,
+          // enablePinching: true,
+          //  enableDoubleTapZooming: true,
           // enableMouseWheelZooming: true
         ),
         primaryXAxis: DateTimeAxis(
@@ -215,12 +243,15 @@ class CartesianGraph extends StatelessWidget {
         ),
         //  tooltipBehavior: tooltipBehavior,
         series: [
-          LineSeries<GraphData, DateTime>( // (X , Y) (GraphData,DateTime)
+          LineSeries<GraphData, DateTime>(
+            markerSettings: MarkerSettings(isVisible: false),
+            name: 'BMA',
             color: Colors.blue, // graph color
             dataSource: graph!.graphData!,
             xValueMapper: (GraphData data, _) => data.datetime,
             yValueMapper: (GraphData data, _) => double.parse(data.price!.toStringAsFixed(2).toString()),
             enableTooltip: true,
+
           ),
         ],
 

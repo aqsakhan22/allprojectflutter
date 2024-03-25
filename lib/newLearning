@@ -1,0 +1,14 @@
+https://github.com/AppsFlyerSDK/appsflyer-flutter-plugin/blob/master/doc/Guides.md
+1. App Flyer
+https://www.rudderstack.com/integration/appsflyer/integrate-your-flutter-app-with-appsflyer/
+2. GA4 (Google Analytics)
+https://medium.com/@vrajrajgohil11/integrating-ga4-events-in-your-flutter-app-a-step-by-step-guide-7a757ba50d11#:~:text=With%20the%20introduction%20of%20Google,track%20user%20interactions%20and%20events.
+
+3. GTM INTEGRATION (Google Tag Manager)
+https://pub.dev/packages/gtm/example
+https://akhileshgahlot.medium.com/adding-tag-manager-to-flutter-app-ce528ec7852
+
+
+4. Deeep linking
+https://codewithandrea.com/articles/flutter-deep-links/
+

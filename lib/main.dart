@@ -14,6 +14,8 @@ import 'package:firebaseflutterproject/firebase_options.dart';
 import 'package:firebaseflutterproject/firebase_services/fcm_controller.dart';
 import 'package:firebaseflutterproject/graphIntegration/graphProvider.dart';
 import 'package:firebaseflutterproject/graphIntegration/graphView.dart';
+import 'package:firebaseflutterproject/graphIntegration/graph_track_ball.dart';
+import 'package:firebaseflutterproject/graphIntegration/trackballexample3.dart';
 import 'package:firebaseflutterproject/socketIntegration/socketEx.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/count_provider.dart';
 import 'package:firebaseflutterproject/stateManagement/provider/example_one.dart';
@@ -118,8 +120,7 @@ class MyApp extends StatelessWidget {
                       backgroundColor: themeChanger.themeMode == ThemeMode.light ?  Colors.blue : Colors.cyan
                   )),
               // home: LoginScreen(),
-              home: GraphView()
-
+              home: GraphTrackBaller(),
               //PieChartSample3(),
               // initialRoute: RoutesName.login,
               // onGenerateRoute: Routes.generateRoute,
